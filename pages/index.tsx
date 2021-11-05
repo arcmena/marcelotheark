@@ -1,7 +1,18 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next'
+
+import SEO from '../components/common/SEO'
 
 const Home: NextPage = () => {
-  return <div>marcelotheark</div>;
-};
+  return (
+    <>
+      <SEO
+        title="Marcelo The Ark"
+        description="Marcelo Mena - Front End Developer"
+      />
 
-export default Home;
+      <div>marcelotheark</div>
+    </>
+  )
+}
+
+export default Home
