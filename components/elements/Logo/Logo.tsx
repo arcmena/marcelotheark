@@ -27,21 +27,17 @@ const White = styled.h1(
 )
 
 const Gradient = styled.h1(
-  ({ theme: { fonts, colors } }) => css`
+  ({ theme: { fonts, mixins } }) => css`
     font-family: ${fonts.family};
     font-style: italic;
     font-weight: ${fonts.weight.medium};
     font-size: ${fonts.sizes['2xl']};
 
+    ${mixins.primaryGradiend}
+
     text-transform: uppercase;
 
     position: absolute;
-
-    background: linear-gradient(
-      90deg,
-      ${colors.primary1} -2.27%,
-      ${colors.primary2} 97.73%
-    );
 
     background-clip: text;
     -webkit-text-fill-color: transparent;
