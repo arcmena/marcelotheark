@@ -20,5 +20,11 @@ export default createGlobalStyle(
       text-decoration: none;
       color: inherit;
     }
+    button {
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      display: inline-flex;
+    }
   `
 )
