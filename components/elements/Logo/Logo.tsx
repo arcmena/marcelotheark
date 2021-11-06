@@ -33,7 +33,7 @@ const Gradient = styled.h1(
     font-weight: ${fonts.weight.medium};
     font-size: ${fonts.sizes['2xl']};
 
-    ${mixins.primaryGradiend}
+    ${mixins.primaryGradient}
 
     text-transform: uppercase;
 
