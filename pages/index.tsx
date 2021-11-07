@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 
 import SEO from '../components/common/SEO'
+import HeroLayout from '../components/layouts/HomePage/HeroLayout'
 
 const Home: NextPage = () => {
   return (
@@ -10,7 +11,7 @@ const Home: NextPage = () => {
         description="Marcelo Mena - Front End Developer"
       />
 
-      <div>marcelotheark</div>
+      <HeroLayout />
     </>
   )
 }
