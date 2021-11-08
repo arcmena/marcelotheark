@@ -35,12 +35,20 @@ const Gradient = styled.h1(
 
     ${mixins.primaryGradient}
 
+    background: -webkit-gradient(
+      linear,
+      left middle,
+      left middle,
+      from(#6417cb),
+      to(#74c6fa)
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
     text-transform: uppercase;
 
     position: absolute;
-
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 
     z-index: 1;
 
