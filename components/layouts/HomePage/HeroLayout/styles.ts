@@ -16,7 +16,7 @@ export const TitleContainer = styled.div(
   ({ theme: { fonts, mixins, colors } }) => css`
     font-style: italic;
     font-weight: ${fonts.weight.medium};
-    font-size: ${fonts.sizes['2xl']};
+    font-size: ${fonts.sizes.base};
     line-height: 29px;
     letter-spacing: 0.005em;
 
