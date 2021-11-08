@@ -9,6 +9,7 @@ const spacing = Object.freeze({
   8: '2rem', // 32px
   9: '2.25rem', // 36px
   10: '2.5rem', // 40px
+  11: '2.75rem', // 44px
   12: '3rem', // 48px
   16: '4rem', // 64px
   20: '5rem', // 80px
