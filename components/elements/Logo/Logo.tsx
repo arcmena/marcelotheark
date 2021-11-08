@@ -33,18 +33,7 @@ const Gradient = styled.h1(
     font-weight: ${fonts.weight.medium};
     font-size: ${fonts.sizes['2xl']};
 
-    ${mixins.primaryGradient}
-
-    background: -webkit-gradient(
-      linear,
-      left middle,
-      left middle,
-      from(#6417cb),
-      to(#74c6fa)
-    );
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    ${mixins.textPrimaryGradient}
 
     text-transform: uppercase;
 
