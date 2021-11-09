@@ -21,10 +21,13 @@ export const BlogPostItemContainer = styled.a(
 )
 
 export const BlogPostItemControl = styled.div(
-  () => css`
+  ({ theme: { fonts } }) => css`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    font-size: ${fonts.sizes.xs};
+    line-height: 14px;
   `
 )
 
