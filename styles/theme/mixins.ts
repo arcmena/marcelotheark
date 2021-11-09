@@ -7,7 +7,7 @@ const mixins = Object.freeze({
   borderPrimaryGradient: `
     border-image: url(${GRADIENTS.BORDER_GRADIENT}); 
     border-image-source: url(${GRADIENTS.BORDER_GRADIENT}); 
-    border-image-slice: 3; 
+    border-image-slice: 4; 
     border-style: solid; 
   `
 })
