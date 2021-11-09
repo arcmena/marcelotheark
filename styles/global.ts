@@ -29,5 +29,9 @@ export default createGlobalStyle(
       background-color: transparent;
       display: inline-flex;
     }
+    ul,
+    li {
+      list-style: none;
+    }
   `
 )
