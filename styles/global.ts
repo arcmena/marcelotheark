@@ -10,10 +10,13 @@ export default createGlobalStyle(
     html {
       width: 100%;
       height: -webkit-fill-available;
+      font-size: 16px;
     }
     body {
       background-color: ${colors.dark};
       font-family: ${fonts.family};
+      line-height: 1;
+      font-size: 1rem;
       color: ${colors.light};
     }
     a {
