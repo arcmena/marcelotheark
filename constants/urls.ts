@@ -1,3 +1,3 @@
 export const GRADIENTS = {
-  BORDER_GRADIENT: '/gradients/border-gradient.svg'
+  BORDER_GRADIENT: '/gradients/border-gradient.png'
 }
