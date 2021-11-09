@@ -7,6 +7,7 @@ import Document, {
   NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import GoogleFonts from '../components/common/GoogleFonts'
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -40,10 +41,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;1,500&display=swap"
-            rel="stylesheet"
-          />
+          <GoogleFonts />
         </Head>
         <body>
           <Main />
