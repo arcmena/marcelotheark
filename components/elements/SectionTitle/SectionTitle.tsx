@@ -14,7 +14,7 @@ const Container = styled.div(
     h2 {
       font-style: italic;
       font-weight: ${fonts.weight.medium};
-      font-size: ${fonts.sizes.sm};
+      font-size: ${fonts.sizes.xs};
       line-height: 16px;
     }
 
