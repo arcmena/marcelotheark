@@ -18,10 +18,10 @@ export const Connector = styled('div')<IConnectorProps>(
     background-color: ${colors.primary1};
 
     bottom: 0;
-    left: 4px;
-    top: ${isFirstElement ? spacing[3] : '0'};
+    left: 4.5px;
+    top: ${isFirstElement ? spacing[4] : '0'};
 
-    height: ${isLastElement ? spacing[6] : 'unset'};
+    height: ${isLastElement ? spacing[7] : 'unset'};
     width: 3px;
   `
 )
