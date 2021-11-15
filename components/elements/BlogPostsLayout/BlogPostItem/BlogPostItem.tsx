@@ -1,4 +1,4 @@
-import ArrowRight from '../../Icons/ArrowRight'
+import ArrowRight from '../../Icons/ArrowRightGradient'
 
 import { BlogPostItemProps } from './types'
 

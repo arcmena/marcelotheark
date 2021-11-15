@@ -26,7 +26,7 @@ const projects = [
 
 export default function ProjectsLayout() {
   return (
-    <ProjectsContainer>
+    <ProjectsContainer id="projects">
       <SectionTitle icon="lightning-bolt" title="projects" />
 
       <ProjectsWrapper>

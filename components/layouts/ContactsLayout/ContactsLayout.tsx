@@ -1,7 +1,9 @@
-import { CONTACTS } from '../../../../constants/urls'
-import Github from '../../../elements/Icons/Github'
-import Instagram from '../../../elements/Icons/Instagram'
-import LinkedIn from '../../../elements/Icons/LinkedIn'
+import { CONTACTS } from '../../../constants/urls'
+import Github from '../../elements/Icons/Github'
+import Instagram from '../../elements/Icons/Instagram'
+import LinkedIn from '../../elements/Icons/LinkedIn'
+
+import { ContactsLayoutProps } from './types'
 
 import { ContactsContainer, ContactsWrapper } from './styles'
 
@@ -10,9 +12,9 @@ const iconProps = {
   height: 48
 }
 
-export default function ContactsLayout() {
+export default function ContactsLayout({ id }: ContactsLayoutProps) {
   return (
-    <ContactsContainer>
+    <ContactsContainer id={id}>
       <h2>You can reach me at:</h2>
 
       <ContactsWrapper>

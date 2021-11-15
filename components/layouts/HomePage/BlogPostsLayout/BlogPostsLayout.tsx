@@ -26,7 +26,7 @@ const posts = [
 
 export default function BlogPostsLayout() {
   return (
-    <BlogPostsContainer>
+    <BlogPostsContainer id="blog-posts">
       <SectionTitle title="blog posts" icon="beaker" />
 
       <PostsWrapper>

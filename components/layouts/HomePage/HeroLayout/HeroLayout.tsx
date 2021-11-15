@@ -2,7 +2,7 @@ import { HeroContainer, TitleContainer } from './styles'
 
 export default function HeroLayout() {
   return (
-    <HeroContainer>
+    <HeroContainer id="hero">
       <TitleContainer>
         <h2 className="white">Hello there!</h2>
         <h2 className="gradient">Hello there!</h2>

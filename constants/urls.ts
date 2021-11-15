@@ -1,3 +1,10 @@
+export const SITE_URLS = {
+  ABOUT_ME: '/#hero',
+  PROJECTS: '/#projects',
+  TIMELINE: '/#timeline',
+  BLOG_POSTS: '/#blog-posts'
+}
+
 export const GRADIENTS = {
   BORDER_GRADIENT: '/gradients/border-gradient.png'
 }

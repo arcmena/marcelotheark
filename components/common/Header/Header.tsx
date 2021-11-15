@@ -1,14 +1,29 @@
 import Logo from '../../elements/Logo'
+import X from '../../elements/Icons/X'
+import Hamburguer from '../../elements/Icons/Hamburguer'
 
-import { HeaderContainer, HeaderHamburguerIcon } from './styles'
+import { HeaderProps } from './types'
 
-export default function Header() {
+import { HeaderContainer } from './styles'
+
+const iconProps = {
+  width: 30,
+  height: 30
+}
+
+export default function Header({
+  handleOpenMobileMenu,
+  handleCloseMobileMenu,
+  isAlternate = false
+}: HeaderProps) {
   return (
-    <HeaderContainer>
+    <HeaderContainer isAlternate={isAlternate}>
       <Logo />
 
-      <button>
-        <HeaderHamburguerIcon />
+      <button
+        onClick={isAlternate ? handleCloseMobileMenu : handleOpenMobileMenu}
+      >
+        {isAlternate ? <X {...iconProps} /> : <Hamburguer {...iconProps} />}
       </button>
     </HeaderContainer>
   )

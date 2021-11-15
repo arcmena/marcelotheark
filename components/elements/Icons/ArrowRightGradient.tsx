@@ -9,13 +9,25 @@ function ArrowRight({ ...props }) {
       {...props}
     >
       <path
-        stroke="#FBFBFB"
+        stroke="url(#paint0_linear_44:134)"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeOpacity="0.8"
         strokeWidth="2"
         d="M22.5 15h-15m8.75-6.25L22.5 15l-6.25-6.25zM22.5 15l-6.25 6.25L22.5 15z"
       ></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_44:134"
+          x1="7.5"
+          x2="22.5"
+          y1="15"
+          y2="15"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#6417CB"></stop>
+          <stop offset="1" stopColor="#74C6FA"></stop>
+        </linearGradient>
+      </defs>
     </svg>
   )
 }

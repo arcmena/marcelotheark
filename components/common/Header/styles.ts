@@ -1,19 +1,18 @@
 import styled, { css } from 'styled-components'
 
-import HamburguerIcon from '../../elements/Icons/Hamburguer'
+import { HeaderContainerProps } from './types'
 
-import { enforceIconSize } from '../../../helpers/styleHelpers'
-
-export const HeaderContainer = styled.header(
-  ({ theme: { spacing } }) => css`
+export const HeaderContainer = styled('header')<HeaderContainerProps>(
+  ({ theme: { spacing, mixins }, isAlternate }) => css`
     padding: ${spacing[5]} ${spacing[6]};
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    ${isAlternate &&
+    css`
+      ${mixins.primaryGradient}
+    `}
   `
 )
-
-export const HeaderHamburguerIcon = styled(HamburguerIcon)`
-  ${enforceIconSize('30px')}
-`

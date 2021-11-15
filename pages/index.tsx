@@ -5,7 +5,7 @@ import HeroLayout from '../components/layouts/HomePage/HeroLayout'
 import ProjectsLayout from '../components/layouts/HomePage/ProjectsLayout'
 import TimelineLayout from '../components/layouts/HomePage/TimelineLayout'
 import BlogPostsLayout from '../components/layouts/HomePage/BlogPostsLayout'
-import ContactsLayout from '../components/layouts/HomePage/ContactsLayout'
+import ContactsLayout from '../components/layouts/ContactsLayout'
 
 const Home: NextPage = () => {
   return (
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <ProjectsLayout />
       <TimelineLayout />
       <BlogPostsLayout />
-      <ContactsLayout />
+      <ContactsLayout id="contacts" />
     </>
   )
 }

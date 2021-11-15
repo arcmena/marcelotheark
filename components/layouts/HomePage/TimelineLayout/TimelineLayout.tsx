@@ -49,7 +49,7 @@ const myTimeline = [
 
 export default function TimelineLayout() {
   return (
-    <TimelineContainer>
+    <TimelineContainer id="timeline">
       <SectionTitle title="timeline" icon="badge-check" />
 
       <TimelineListWrapper>
