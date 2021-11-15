@@ -4,7 +4,7 @@ import Beaker from '../Icons/Beaker'
 import LightningBold from '../Icons/LightningBold'
 
 const Container = styled.div(
-  ({ theme: { spacing, mixins, fonts } }) => css`
+  ({ theme: { spacing, mixins, fonts, sizes } }) => css`
     ${mixins.primaryGradient}
 
     max-width: 170px;
@@ -23,6 +23,10 @@ const Container = styled.div(
 
     svg {
       margin-right: ${spacing[1]};
+    }
+
+    @media (min-width: ${sizes.screens.md}) {
+      max-width: 270px;
     }
   `
 )
