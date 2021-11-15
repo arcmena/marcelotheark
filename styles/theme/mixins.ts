@@ -12,7 +12,9 @@ const mixins = Object.freeze({
     border-image-slice: 4; 
     border-style: solid; 
     border-width: 3px;
-  `
+  `,
+  gradientPrimaryToTransparent:
+    'background: linear-gradient(to right, #6417CB, rgba(100, 23, 203, 0));'
 })
 
 export { mixins }

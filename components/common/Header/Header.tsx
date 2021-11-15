@@ -1,10 +1,14 @@
 import Logo from '../../elements/Logo'
 import X from '../../elements/Icons/X'
 import Hamburguer from '../../elements/Icons/Hamburguer'
+import Link from '../../elements/Link'
+
+import menuLinks from '../../../constants/menuLinks'
 
 import { HeaderProps } from './types'
 
-import { HeaderContainer } from './styles'
+import { HeaderContainer, HeaderDesktopItems } from './styles'
+import { SITE_URLS } from '../../../constants/urls'
 
 const iconProps = {
   width: 30,
@@ -21,10 +25,24 @@ export default function Header({
       <Logo />
 
       <button
+        className="mobile-hamburguer"
         onClick={isAlternate ? handleCloseMobileMenu : handleOpenMobileMenu}
       >
         {isAlternate ? <X {...iconProps} /> : <Hamburguer {...iconProps} />}
       </button>
+
+      <HeaderDesktopItems>
+        <ul>
+          {menuLinks.map(({ label, href }) => (
+            <li key={label}>
+              <Link href={href}>{label}</Link>
+            </li>
+          ))}
+          <li>
+            <Link href={SITE_URLS.CONTACTS}>Contact</Link>
+          </li>
+        </ul>
+      </HeaderDesktopItems>
     </HeaderContainer>
   )
 }

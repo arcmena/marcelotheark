@@ -2,7 +2,8 @@ export const SITE_URLS = {
   ABOUT_ME: '/#hero',
   PROJECTS: '/#projects',
   TIMELINE: '/#timeline',
-  BLOG_POSTS: '/#blog-posts'
+  BLOG_POSTS: '/#blog-posts',
+  CONTACTS: '/#contacts'
 }
 
 export const GRADIENTS = {
