@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 
 import SEO from '../components/common/SEO'
 import HeroLayout from '../components/layouts/HomePage/HeroLayout'
@@ -7,7 +7,14 @@ import TimelineLayout from '../components/layouts/HomePage/TimelineLayout'
 import BlogPostsLayout from '../components/layouts/HomePage/BlogPostsLayout'
 import ContactsLayout from '../components/layouts/ContactsLayout'
 
-const Home: NextPage = () => {
+import { getProjects } from '../graphql/queries/getProjects'
+import { TProject } from '../graphql/schema'
+
+interface HomePageProps {
+  projects: Array<TProject>
+}
+
+const HomePage: NextPage<HomePageProps> = ({ projects }) => {
   return (
     <>
       <SEO
@@ -16,7 +23,7 @@ const Home: NextPage = () => {
       />
 
       <HeroLayout />
-      <ProjectsLayout />
+      <ProjectsLayout projects={projects} />
       <TimelineLayout />
       <BlogPostsLayout />
       <ContactsLayout id="contacts" />
@@ -24,4 +31,14 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export const getStaticProps: GetStaticProps = async () => {
+  const projects = await getProjects()
+
+  return {
+    props: {
+      projects
+    }
+  }
+}
+
+export default HomePage

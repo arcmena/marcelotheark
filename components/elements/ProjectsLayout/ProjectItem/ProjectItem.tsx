@@ -1,3 +1,4 @@
+import { TProject } from '../../../../graphql/schema'
 import Github from '../../Icons/Github'
 
 import {
@@ -11,20 +12,16 @@ const iconProps = {
   height: 16
 }
 
-interface ProjectItemProps {
-  title: string
-  description: string
-  href: string
-}
+interface ProjectItemProps extends TProject {}
 
 export default function ProjectItem({
   title,
   description,
-  href
+  url
 }: ProjectItemProps) {
   return (
     <ProjectItemContainer
-      href={href}
+      href={url}
       target="_blank"
       rel="noopener"
       aria-label={title}
