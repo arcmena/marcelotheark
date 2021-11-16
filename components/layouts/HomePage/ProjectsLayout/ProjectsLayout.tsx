@@ -1,8 +1,9 @@
 import SectionTitle from '../../../elements/SectionTitle'
 import ProjectItem from '../../../elements/ProjectsLayout/ProjectItem'
 
-import { ProjectsContainer, ProjectsWrapper } from './styles'
 import { ProjectsLayoutProps } from './types'
+
+import { ProjectsContainer, ProjectsWrapper } from './styles'
 
 export default function ProjectsLayout({ projects }: ProjectsLayoutProps) {
   return (
@@ -11,7 +12,7 @@ export default function ProjectsLayout({ projects }: ProjectsLayoutProps) {
 
       <ProjectsWrapper>
         {projects.map(info => (
-          <ProjectItem key={info.title} {...info} />
+          <ProjectItem key={info.id} {...info} />
         ))}
       </ProjectsWrapper>
     </ProjectsContainer>
