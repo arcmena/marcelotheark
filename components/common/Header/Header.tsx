@@ -27,6 +27,7 @@ export default function Header({
       <button
         className="mobile-hamburguer"
         onClick={isAlternate ? handleCloseMobileMenu : handleOpenMobileMenu}
+        aria-label={isAlternate ? 'Close Menu' : 'Open Menu'}
       >
         {isAlternate ? <X {...iconProps} /> : <Hamburguer {...iconProps} />}
       </button>
@@ -35,7 +36,9 @@ export default function Header({
         <ul>
           {menuLinks.map(({ label, href }) => (
             <li key={label}>
-              <Link href={href}>{label}</Link>
+              <Link href={href} aria-label={label}>
+                {label}
+              </Link>
             </li>
           ))}
           <li>

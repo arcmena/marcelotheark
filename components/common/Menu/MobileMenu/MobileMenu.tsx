@@ -35,7 +35,7 @@ export default function MobileMenu({
         <ul>
           {menuLinks.map(({ label, href }) => (
             <li key={label}>
-              <Link href={href}>
+              <Link href={href} aria-label={label}>
                 {label} <ArrowRight {...iconProps} />
               </Link>
             </li>

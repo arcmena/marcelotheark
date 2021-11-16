@@ -18,13 +18,28 @@ export default function ContactsLayout({ id }: ContactsLayoutProps) {
       <h2>You can reach me at:</h2>
 
       <ContactsWrapper>
-        <a href={CONTACTS.GITHUB} target="_blank" rel="noreferrer">
+        <a
+          href={CONTACTS.GITHUB}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Checkout my Github"
+        >
           <Github {...iconProps} />
         </a>
-        <a href={CONTACTS.LINKEDIN} target="_blank" rel="noreferrer">
+        <a
+          href={CONTACTS.LINKEDIN}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Checkout my LinkedIn"
+        >
           <LinkedIn {...iconProps} />
         </a>
-        <a href={CONTACTS.INSTAGRAM} target="_blank" rel="noreferrer">
+        <a
+          href={CONTACTS.INSTAGRAM}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Checkout my Instagram"
+        >
           <Instagram {...iconProps} />
         </a>
       </ContactsWrapper>

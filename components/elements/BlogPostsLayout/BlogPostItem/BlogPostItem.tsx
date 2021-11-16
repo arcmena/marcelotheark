@@ -19,7 +19,12 @@ export default function BlogPostItem({
   tags
 }: BlogPostItemProps) {
   return (
-    <BlogPostItemContainer href="" target="_blank" rel="noopener">
+    <BlogPostItemContainer
+      href=""
+      target="_blank"
+      rel="noopener"
+      aria-label={title}
+    >
       <BlogPostItemControl>
         {publishedAt} <ArrowRight {...iconProps} />
       </BlogPostItemControl>

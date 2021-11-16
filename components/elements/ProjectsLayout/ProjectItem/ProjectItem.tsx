@@ -23,7 +23,12 @@ export default function ProjectItem({
   href
 }: ProjectItemProps) {
   return (
-    <ProjectItemContainer href={href} target="_blank" rel="noopener">
+    <ProjectItemContainer
+      href={href}
+      target="_blank"
+      rel="noopener"
+      aria-label={title}
+    >
       <ProjectItemTitle>
         <h2>{title}</h2>
 
