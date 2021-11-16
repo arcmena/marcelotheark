@@ -1,3 +1,3 @@
-import { ITimeline } from '../../../../types/Timeline'
+import { TTimeline } from '../../../../graphql/schema'
 
-export interface TimelineListProps extends ITimeline {}
+export interface TimelineListProps extends TTimeline {}

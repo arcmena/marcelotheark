@@ -22,7 +22,7 @@ export default function TimelineList({ year, items }: TimelineListProps) {
             ...item
           }
 
-          return <TimelineListItem key={item.title} {...props} />
+          return <TimelineListItem key={item.id} {...props} />
         })}
       </TimelineListItemWrapper>
     </TimelineListContainer>

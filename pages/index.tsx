@@ -8,13 +8,15 @@ import BlogPostsLayout from '../components/layouts/HomePage/BlogPostsLayout'
 import ContactsLayout from '../components/layouts/ContactsLayout'
 
 import { getProjects } from '../graphql/queries/getProjects'
-import { TProject } from '../graphql/schema'
+import { getTimelines } from '../graphql/queries/getTimeline'
+import { TProject, TTimeline } from '../graphql/schema'
 
 interface HomePageProps {
   projects: Array<TProject>
+  timelines: Array<TTimeline>
 }
 
-const HomePage: NextPage<HomePageProps> = ({ projects }) => {
+const HomePage: NextPage<HomePageProps> = ({ projects, timelines }) => {
   return (
     <>
       <SEO
@@ -24,7 +26,7 @@ const HomePage: NextPage<HomePageProps> = ({ projects }) => {
 
       <HeroLayout />
       <ProjectsLayout projects={projects} />
-      <TimelineLayout />
+      <TimelineLayout timelines={timelines} />
       <BlogPostsLayout />
       <ContactsLayout id="contacts" />
     </>
@@ -33,10 +35,12 @@ const HomePage: NextPage<HomePageProps> = ({ projects }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects()
+  const timelines = await getTimelines()
 
   return {
     props: {
-      projects
+      projects,
+      timelines
     }
   }
 }
