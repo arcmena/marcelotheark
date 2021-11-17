@@ -5,7 +5,6 @@ import HeroLayout from '../components/layouts/HomePage/HeroLayout'
 import ProjectsLayout from '../components/layouts/HomePage/ProjectsLayout'
 import TimelineLayout from '../components/layouts/HomePage/TimelineLayout'
 import BlogPostsLayout from '../components/layouts/HomePage/BlogPostsLayout'
-import ContactsLayout from '../components/layouts/ContactsLayout'
 
 import { getProjects } from '../graphql/queries/getProjects'
 import { getTimelines } from '../graphql/queries/getTimeline'
@@ -34,7 +33,6 @@ const HomePage: NextPage<HomePageProps> = ({
       <ProjectsLayout projects={projects} />
       <TimelineLayout timelines={timelines} />
       <BlogPostsLayout blogPosts={blogPosts} />
-      <ContactsLayout id="contacts" />
     </>
   )
 }

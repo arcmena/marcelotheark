@@ -5,6 +5,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import Header from '../Header'
 import Footer from '../Footer'
 import MobileMenu from '../Menu/MobileMenu'
+import ContactsLayout from '../../layouts/ContactsLayout'
 
 import { LayoutProps } from './types'
 
@@ -47,6 +48,8 @@ export default function Layout({ children }: LayoutProps) {
       <Header handleOpenMobileMenu={handleOpenMobileMenu} />
 
       <MainContainer>{children}</MainContainer>
+
+      <ContactsLayout id="contacts" />
 
       <Footer />
     </>
