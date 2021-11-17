@@ -69,7 +69,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: blogPostPaths,
-    fallback: true
+    fallback: false
   }
 }
 
