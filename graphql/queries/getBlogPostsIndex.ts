@@ -5,7 +5,7 @@ import { TBlogPost } from '../schema'
 
 export const GET_BLOG_POSTS_INDEX = gql`
   query getBlogPostsIndex {
-    posts {
+    posts(orderBy: createdAt_DESC) {
       id
       createdAt
       slug
