@@ -6,6 +6,10 @@ export const BlogPostContainer = styled.article(
     max-width: ${sizes.screens.md};
     margin: ${spacing[11]} auto 0;
     padding: 0 ${spacing[6]};
+
+    @media (min-width: ${sizes.screens.md}) {
+      padding: 0;
+    }
   `
 )
 
@@ -34,9 +38,6 @@ export const BlogPostInfo = styled.div(
     font-size: ${fonts.sizes.sm};
 
     color: ${transparentize(0.2, colors.light)};
-
-    @media (min-width: ${sizes.screens.md}) {
-    }
   `
 )
 
