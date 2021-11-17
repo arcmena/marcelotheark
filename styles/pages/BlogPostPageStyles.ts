@@ -28,7 +28,7 @@ export const BlogPostTitle = styled.h1(
 )
 
 export const BlogPostInfo = styled.div(
-  ({ theme: { sizes, fonts, spacing, colors } }) => css`
+  ({ theme: { fonts, spacing, colors } }) => css`
     margin: ${spacing[5]} 0;
 
     display: flex;
@@ -43,6 +43,6 @@ export const BlogPostInfo = styled.div(
 
 export const BlogPostContentContainer = styled.div(
   ({ theme: { spacing } }) => css`
-    margin-top: ${spacing[11]};
+    margin-top: ${spacing[8]};
   `
 )

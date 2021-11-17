@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const BlogPostH1 = styled.h2(
+const BlogPostH1 = styled.h1(
   ({ theme: { fonts, spacing } }) => css`
     font-weight: ${fonts.weight.medium};
     font-size: ${fonts.sizes['2xl']};
