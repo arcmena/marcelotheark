@@ -1,4 +1,5 @@
 export const SITE_URLS = {
+  HOME: '/',
   ABOUT_ME: '/#hero',
   PROJECTS: '/#projects',
   TIMELINE: '/#timeline',

@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components'
+import { SITE_URLS } from '../../../constants/urls'
+import Link from '../Link'
 
 const LogoContainer = styled.div(
   () => css`
@@ -48,9 +50,11 @@ const Gradient = styled.h1(
 
 export default function Logo() {
   return (
-    <LogoContainer>
-      <White>Ark</White>
-      <Gradient>Ark</Gradient>
-    </LogoContainer>
+    <Link href={SITE_URLS.HOME}>
+      <LogoContainer>
+        <White>Ark</White>
+        <Gradient>Ark</Gradient>
+      </LogoContainer>
+    </Link>
   )
 }
