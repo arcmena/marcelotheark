@@ -30,7 +30,7 @@ export const HeaderContainer = styled('header')<HeaderContainerProps>(
   `
 )
 
-export const HeaderDesktopItems = styled.div(
+export const HeaderDesktopItems = styled.nav(
   ({ theme: { sizes, spacing, fonts, mixins } }) => css`
     display: none;
 
