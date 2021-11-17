@@ -24,4 +24,5 @@ export type TBlogPost = {
   title: string
   tags: Array<string>
   content: string
+  description: string
 }

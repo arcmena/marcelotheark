@@ -2,6 +2,7 @@ import ArrowRight from '../../Icons/ArrowRightGradient'
 import Link from '../../Link'
 
 import { getMonthAndDay } from '../../../../helpers/dateHelpers'
+import { SITE_URLS } from '../../../../constants/urls'
 
 import { BlogPostItemProps } from './types'
 
@@ -23,7 +24,7 @@ export default function BlogPostItem({
   slug
 }: BlogPostItemProps) {
   return (
-    <Link href={`/${slug}`}>
+    <Link href={SITE_URLS.BLOG_POST + slug}>
       <BlogPostItemContainer>
         <BlogPostItemControl>
           {getMonthAndDay(publishedAt)} <ArrowRight {...iconProps} />

@@ -3,7 +3,8 @@ export const SITE_URLS = {
   PROJECTS: '/#projects',
   TIMELINE: '/#timeline',
   BLOG_POSTS: '/#blog-posts',
-  CONTACTS: '/#contacts'
+  CONTACTS: '/#contacts',
+  BLOG_POST: '/blog/post/'
 }
 
 export const GRADIENTS = {
