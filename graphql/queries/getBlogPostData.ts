@@ -12,7 +12,7 @@ export const GET_BLOG_POST_DATA = gql`
       title
       description
       content
-      publishedAt
+      createdAt
     }
   }
 `

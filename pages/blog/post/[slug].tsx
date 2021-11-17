@@ -38,7 +38,7 @@ export default function BlogPostPage({
   postData,
   mdContent
 }: BlogPostPageProps) {
-  const { title, publishedAt, tags } = postData
+  const { title, createdAt, tags } = postData
 
   const { seoTitle, seoDescription } = blogPostSEO(postData)
 
@@ -50,8 +50,9 @@ export default function BlogPostPage({
 
       <BlogPostContainer>
         <BlogPostTitle>{title}</BlogPostTitle>
+
         <BlogPostInfo>
-          <span>{getFullDate(publishedAt)}</span> <span>{joinedTags}</span>
+          <span>{getFullDate(createdAt)}</span> <span>{joinedTags}</span>
         </BlogPostInfo>
 
         <BlogPostContentContainer>

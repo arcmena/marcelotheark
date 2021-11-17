@@ -19,7 +19,7 @@ export type TTimeline = {
 
 export type TBlogPost = {
   id: string
-  publishedAt: string
+  createdAt: string
   slug: string
   title: string
   tags: Array<string>

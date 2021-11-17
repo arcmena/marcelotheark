@@ -7,7 +7,7 @@ export const GET_BLOG_POSTS_INDEX = gql`
   query getBlogPostsIndex {
     posts {
       id
-      publishedAt
+      createdAt
       slug
       title
       tags

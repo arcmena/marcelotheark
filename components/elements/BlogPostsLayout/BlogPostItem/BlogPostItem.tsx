@@ -19,7 +19,7 @@ const iconProps = {
 
 export default function BlogPostItem({
   title,
-  publishedAt,
+  createdAt,
   tags,
   slug
 }: BlogPostItemProps) {
@@ -27,7 +27,7 @@ export default function BlogPostItem({
     <Link href={SITE_URLS.BLOG_POST + slug}>
       <BlogPostItemContainer>
         <BlogPostItemControl>
-          {getMonthAndDay(publishedAt)} <ArrowRight {...iconProps} />
+          {getMonthAndDay(createdAt)} <ArrowRight {...iconProps} />
         </BlogPostItemControl>
 
         <h2>{title}</h2>
