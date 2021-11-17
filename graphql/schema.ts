@@ -16,3 +16,12 @@ export type TTimeline = {
   year: string
   items: Array<TTimelineItem>
 }
+
+export type TBlogPost = {
+  id: string
+  publishedAt: string
+  slug: string
+  title: string
+  tags: Array<string>
+  content: string
+}

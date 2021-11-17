@@ -1,4 +1,7 @@
 import ArrowRight from '../../Icons/ArrowRightGradient'
+import Link from '../../Link'
+
+import { getMonthAndDay } from '../../../../helpers/dateHelpers'
 
 import { BlogPostItemProps } from './types'
 
@@ -16,26 +19,24 @@ const iconProps = {
 export default function BlogPostItem({
   title,
   publishedAt,
-  tags
+  tags,
+  slug
 }: BlogPostItemProps) {
   return (
-    <BlogPostItemContainer
-      href=""
-      target="_blank"
-      rel="noopener"
-      aria-label={title}
-    >
-      <BlogPostItemControl>
-        {publishedAt} <ArrowRight {...iconProps} />
-      </BlogPostItemControl>
+    <Link href={`/${slug}`}>
+      <BlogPostItemContainer>
+        <BlogPostItemControl>
+          {getMonthAndDay(publishedAt)} <ArrowRight {...iconProps} />
+        </BlogPostItemControl>
 
-      <h2>{title}</h2>
+        <h2>{title}</h2>
 
-      <BlogPostItemTags>
-        {tags.map(tag => (
-          <span key={tag}>#{tag}</span>
-        ))}
-      </BlogPostItemTags>
-    </BlogPostItemContainer>
+        <BlogPostItemTags>
+          {tags.map(tag => (
+            <span key={tag}>#{tag}</span>
+          ))}
+        </BlogPostItemTags>
+      </BlogPostItemContainer>
+    </Link>
   )
 }

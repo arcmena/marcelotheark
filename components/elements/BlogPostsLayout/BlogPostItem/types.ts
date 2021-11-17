@@ -1,3 +1,3 @@
-import { IBlogPost } from '../../../../types/BlogPost'
+import { TBlogPost } from '../../../../graphql/schema'
 
-export interface BlogPostItemProps extends IBlogPost {}
+export interface BlogPostItemProps extends TBlogPost {}

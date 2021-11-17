@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
 
-export const BlogPostItemContainer = styled.a(
+export const BlogPostItemContainer = styled.div(
   ({ theme: { spacing, mixins, fonts } }) => css`
     padding: ${spacing[4]};
 

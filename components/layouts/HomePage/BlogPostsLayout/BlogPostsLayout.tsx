@@ -1,36 +1,17 @@
 import BlogPostItem from '../../../elements/BlogPostsLayout/BlogPostItem'
 import SectionTitle from '../../../elements/SectionTitle'
 
+import { BlogPostsLayouProps } from './types'
+
 import { BlogPostsContainer, PostsWrapper } from './styles'
 
-const posts = [
-  {
-    id: '1',
-    title: 'Who will be the MVP of the year?',
-    publishedAt: 'July 4',
-    tags: ['hooks', 'react']
-  },
-  {
-    id: '2',
-    title: 'Who will be the MVP of the year?',
-    publishedAt: 'July 4',
-    tags: ['hooks', 'react']
-  },
-  {
-    id: '3',
-    title: 'Who will be the MVP of the year?',
-    publishedAt: 'July 4',
-    tags: ['hooks', 'react']
-  }
-]
-
-export default function BlogPostsLayout() {
+export default function BlogPostsLayout({ blogPosts }: BlogPostsLayouProps) {
   return (
     <BlogPostsContainer id="blog-posts">
       <SectionTitle title="blog posts" icon="beaker" />
 
       <PostsWrapper>
-        {posts.map(postItem => (
+        {blogPosts.map(postItem => (
           <BlogPostItem key={postItem.id} {...postItem} />
         ))}
       </PostsWrapper>
