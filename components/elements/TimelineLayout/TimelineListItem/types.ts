@@ -1,6 +1,6 @@
-import { ITimelineItem } from '../../../../types/Timeline'
+import { TTimelineItem } from '../../../../graphql/schema'
 
-export interface TimelineListItemProps extends ITimelineItem, IConnectorProps {
+export interface TimelineListItemProps extends TTimelineItem, IConnectorProps {
   shouldConnectDots: boolean
 }
 
