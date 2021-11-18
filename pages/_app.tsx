@@ -1,8 +1,9 @@
-import { useEffect } from 'hoist-non-react-statics/node_modules/@types/react'
+import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'styled-components'
 
+import GoogleAnalytics from '../components/common/GoogleAnalytics/GoogleAnalytics'
 import Layout from '../components/common/Layout'
 
 import * as gtag from '../lib/gtag'
@@ -32,13 +33,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
+    <>
+      <GoogleAnalytics />
 
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </>
   )
 }
 
