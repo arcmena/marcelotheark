@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { MDXRemote } from 'next-mdx-remote'
 
 import SEO from '../../../components/common/SEO'
 import BlogPostResponsiveImage from '../../../components/elements/BlogPost/BlogPostResponsiveImage'
@@ -10,10 +10,11 @@ import BlogPostH1 from '../../../components/elements/BlogPost/BlogPostH1'
 
 import { getBlogPostData } from '../../../graphql/queries/getBlogPostData'
 import { getBlogPostsIndex } from '../../../graphql/queries/getBlogPostsIndex'
-import { TBlogPost } from '../../../graphql/schema'
 
 import { blogPostSEO } from '../../../helpers/blogPostHelpers'
 import { getFullDate } from '../../../helpers/dateHelpers'
+
+import { BlogPostPageProps } from '../../../types/pages/BlogPostPageTypes'
 
 import {
   BlogPostContainer,
@@ -27,11 +28,6 @@ const postComponents = {
   h1: BlogPostH1,
   h2: BlogPostH2,
   p: BlogPostParagraph
-}
-
-interface BlogPostPageProps {
-  postData: TBlogPost
-  mdContent: MDXRemoteSerializeResult<Record<string, unknown>>
 }
 
 export default function BlogPostPage({

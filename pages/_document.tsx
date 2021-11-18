@@ -7,6 +7,7 @@ import Document, {
   NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+
 import GoogleFonts from '../components/common/GoogleFonts'
 
 export default class MyDocument extends Document {

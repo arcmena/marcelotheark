@@ -9,13 +9,8 @@ import BlogPostsLayout from '../components/layouts/HomePage/BlogPostsLayout'
 import { getProjects } from '../graphql/queries/getProjects'
 import { getTimelines } from '../graphql/queries/getTimeline'
 import { getBlogPostsIndex } from '../graphql/queries/getBlogPostsIndex'
-import { TBlogPost, TProject, TTimeline } from '../graphql/schema'
 
-interface HomePageProps {
-  projects: Array<TProject>
-  timelines: Array<TTimeline>
-  blogPosts: Array<TBlogPost>
-}
+import { HomePageProps } from '../types/pages/HomePageTypes'
 
 const HomePage: NextPage<HomePageProps> = ({
   projects,
