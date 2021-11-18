@@ -47,9 +47,10 @@ export default function Layout({ children }: LayoutProps) {
 
       <Header handleOpenMobileMenu={handleOpenMobileMenu} />
 
-      <MainContainer>{children}</MainContainer>
-
-      <ContactsLayout id="contacts" />
+      <MainContainer>
+        {children}
+        <ContactsLayout id="contacts" />
+      </MainContainer>
 
       <Footer />
     </>

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 export const BlogPostContainer = styled.article(
   ({ theme: { sizes, spacing } }) => css`
     max-width: ${sizes.screens.md};
-    margin: ${spacing[11]} auto 0;
+    margin: 0 auto;
     padding: 0 ${spacing[6]};
 
     @media (min-width: ${sizes.screens.md}) {

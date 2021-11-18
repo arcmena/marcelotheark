@@ -12,6 +12,8 @@ import { getBlogPostsIndex } from '../graphql/queries/getBlogPostsIndex'
 
 import { HomePageProps } from '../types/pages/HomePageTypes'
 
+import { HomePageContainer } from '../styles/pages/HomePageStyles'
+
 const HomePage: NextPage<HomePageProps> = ({
   projects,
   timelines,
@@ -24,10 +26,12 @@ const HomePage: NextPage<HomePageProps> = ({
         description="Marcelo Mena - Front End Developer"
       />
 
-      <HeroLayout />
-      <ProjectsLayout projects={projects} />
-      <TimelineLayout timelines={timelines} />
-      <BlogPostsLayout blogPosts={blogPosts} />
+      <HomePageContainer>
+        <HeroLayout />
+        <ProjectsLayout projects={projects} />
+        <TimelineLayout timelines={timelines} />
+        <BlogPostsLayout blogPosts={blogPosts} />
+      </HomePageContainer>
     </>
   )
 }
