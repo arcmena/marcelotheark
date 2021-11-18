@@ -1,40 +1,10 @@
-import styled, { css } from 'styled-components'
 import BadgeCheck from '../Icons/BadgeCheck'
 import Beaker from '../Icons/Beaker'
 import LightningBold from '../Icons/LightningBold'
 
-const Container = styled.div(
-  ({ theme: { spacing, mixins, fonts, sizes } }) => css`
-    ${mixins.primaryGradient}
+import { SectionTitleProps } from './types'
 
-    max-width: 170px;
-    padding: 2px ${spacing[2]};
-    border-radius: 2px;
-
-    h2 {
-      font-style: italic;
-      font-weight: ${fonts.weight.medium};
-      font-size: ${fonts.sizes.xs};
-      line-height: 16px;
-    }
-
-    display: flex;
-    align-items: center;
-
-    svg {
-      margin-right: ${spacing[1]};
-    }
-
-    @media (min-width: ${sizes.screens.md}) {
-      max-width: 270px;
-    }
-  `
-)
-
-interface SectionTitleProps {
-  title: string
-  icon: 'lightning-bolt' | 'badge-check' | 'beaker'
-}
+import { SectionTitleContainer } from './styles'
 
 const iconProps = {
   width: 20,
@@ -43,11 +13,11 @@ const iconProps = {
 
 export default function SectionTitle({ title, icon }: SectionTitleProps) {
   return (
-    <Container>
+    <SectionTitleContainer>
       {icon === 'lightning-bolt' && <LightningBold {...iconProps} />}
       {icon === 'badge-check' && <BadgeCheck {...iconProps} />}
       {icon === 'beaker' && <Beaker {...iconProps} />}
       <h2>{title}</h2>
-    </Container>
+    </SectionTitleContainer>
   )
 }

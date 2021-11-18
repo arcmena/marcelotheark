@@ -4,11 +4,11 @@ import Hamburguer from '../../elements/Icons/Hamburguer'
 import Link from '../../elements/Link'
 
 import menuLinks from '../../../constants/menuLinks'
+import { SITE_URLS } from '../../../constants/urls'
 
 import { HeaderProps } from './types'
 
 import { HeaderContainer, HeaderDesktopItems } from './styles'
-import { SITE_URLS } from '../../../constants/urls'
 
 const iconProps = {
   width: 30,

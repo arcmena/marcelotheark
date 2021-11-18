@@ -1,5 +1,6 @@
-import { TProject } from '../../../../graphql/schema'
 import Github from '../../Icons/Github'
+
+import { ProjectItemProps } from './types'
 
 import {
   ProjectItemContainer,
@@ -11,8 +12,6 @@ const iconProps = {
   width: 16,
   height: 16
 }
-
-interface ProjectItemProps extends TProject {}
 
 export default function ProjectItem({
   title,
