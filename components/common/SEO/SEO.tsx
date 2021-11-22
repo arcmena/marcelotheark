@@ -1,8 +1,20 @@
 import Head from 'next/head'
 
-import { SEOProps } from './types'
+import { SEOProps, TOGImage } from './types'
 
-export default function SEO({ title, description }: SEOProps) {
+const defaultOGImage: TOGImage = {
+  src: '/og_cover.png',
+  alt: 'A lightning bolt and text: ARK',
+  type: 'image/png',
+  width: '800',
+  height: '600'
+}
+
+export default function SEO({
+  title,
+  description,
+  ogImage = defaultOGImage
+}: SEOProps) {
   return (
     <Head>
       <title>{title}</title>
@@ -13,6 +25,12 @@ export default function SEO({ title, description }: SEOProps) {
       <meta itemProp="description" content={description} />
       <meta property="og:description" content={description} />
       <meta name="twitter:description" content={description} />
+
+      <meta property="og:image" content={ogImage.src} />
+      <meta property="og:image:alt" content={ogImage.alt} />
+      <meta property="og:image:type" content={ogImage.type} />
+      <meta property="og:image:width" content={ogImage.width} />
+      <meta property="og:image:height" content={ogImage.height} />
     </Head>
   )
 }
