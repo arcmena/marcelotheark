@@ -1,3 +1,8 @@
+export const SITE =
+  process.env.NODE_ENV === 'production'
+    ? 'https://marcelotheark.com'
+    : 'http://localhost:3000'
+
 export const SITE_URLS = {
   HOME: '/',
   ABOUT_ME: '/#hero',
