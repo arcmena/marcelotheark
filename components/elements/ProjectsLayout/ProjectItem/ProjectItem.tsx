@@ -26,7 +26,7 @@ export default function ProjectItem({
       aria-label={title}
     >
       <ProjectItemTitle>
-        <h2>{title}</h2>
+        <h3>{title}</h3>
 
         <Github {...iconProps} />
       </ProjectItemTitle>

@@ -30,7 +30,7 @@ export default function BlogPostItem({
           {getMonthAndDay(createdAt)} <ArrowRight {...iconProps} />
         </BlogPostItemControl>
 
-        <h2>{title}</h2>
+        <h3>{title}</h3>
 
         <BlogPostItemTags>
           {tags.map(tag => (
