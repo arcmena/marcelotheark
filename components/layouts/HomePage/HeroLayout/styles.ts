@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const HeroContainer = styled.section(
   ({ theme: { spacing, fonts } }) => css`
-    p {
+    h1 {
       margin-top: ${spacing[3]};
 
       font-weight: ${fonts.weight.medium};
@@ -16,7 +16,7 @@ export const TitleContainer = styled.div(
   ({ theme: { fonts, mixins, colors } }) => css`
     font-style: italic;
     font-weight: ${fonts.weight.medium};
-    font-size: ${fonts.sizes.base};
+    font-size: ${fonts.sizes['3xl']};
     line-height: 29px;
     letter-spacing: 0.005em;
 

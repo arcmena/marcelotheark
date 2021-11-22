@@ -26,7 +26,7 @@ export const LogoWhite = styled.h1(
   `
 )
 
-export const LogoGradient = styled.h1(
+export const LogoGradient = styled.span(
   ({ theme: { fonts, mixins } }) => css`
     font-family: ${fonts.family};
     font-style: italic;
