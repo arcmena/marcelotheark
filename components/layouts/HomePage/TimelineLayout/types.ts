@@ -1,4 +1,4 @@
-import { TTimeline } from '../../../../graphql/schema'
+import { TTimeline } from '@graphql/schema'
 
 export interface TimelineLayoutProps {
   timelines: Array<TTimeline>

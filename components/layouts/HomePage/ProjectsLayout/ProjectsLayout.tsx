@@ -1,5 +1,5 @@
-import SectionTitle from '../../../elements/SectionTitle'
-import ProjectItem from '../../../elements/ProjectsLayout/ProjectItem'
+import SectionTitle from '@components/elements/SectionTitle'
+import ProjectItem from '@components/elements/ProjectsLayout/ProjectItem'
 
 import { ProjectsLayoutProps } from './types'
 

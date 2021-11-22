@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
-import { gridLayout } from '../../../../helpers/styleHelpers'
+
+import { gridLayout } from '@helpers/styleHelpers'
 
 export const ProjectsContainer = styled.section(() => css``)
 

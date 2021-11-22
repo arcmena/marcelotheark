@@ -1,3 +1,3 @@
-import { TTimeline } from '../../../../graphql/schema'
+import { TTimeline } from '@graphql/schema'
 
 export interface TimelineListProps extends TTimeline {}

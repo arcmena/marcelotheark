@@ -1,8 +1,8 @@
 import ArrowRight from '../../Icons/ArrowRightGradient'
 import Link from '../../Link'
 
-import { getMonthAndDay } from '../../../../helpers/dateHelpers'
-import { SITE_URLS } from '../../../../constants/urls'
+import { getMonthAndDay } from '@helpers/dateHelpers'
+import { SITE_URLS } from '@constants/urls'
 
 import { BlogPostItemProps } from './types'
 

@@ -3,13 +3,13 @@ import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'styled-components'
 
-import GoogleAnalytics from '../components/common/GoogleAnalytics/GoogleAnalytics'
-import Layout from '../components/common/Layout'
+import GoogleAnalytics from '@components/common/GoogleAnalytics/GoogleAnalytics'
+import Layout from '@components/common/Layout'
 
-import * as gtag from '../lib/gtag'
+import * as gtag from '@lib/gtag'
 
-import GlobalStyles from '../styles/global'
-import theme from '../styles/theme'
+import GlobalStyles from '@styles/global'
+import theme from '@styles/theme'
 
 declare global {
   interface Window {

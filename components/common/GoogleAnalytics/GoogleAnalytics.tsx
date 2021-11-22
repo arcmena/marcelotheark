@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-import * as gtag from '../../../lib/gtag'
+import * as gtag from '@lib/gtag'
 
 export default function GoogleAnalytics() {
   return (

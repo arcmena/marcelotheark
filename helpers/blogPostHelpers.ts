@@ -1,4 +1,4 @@
-import { TBlogPost } from '../graphql/schema'
+import { TBlogPost } from '@graphql/schema'
 
 export const blogPostSEO = (blogPost: TBlogPost) => {
   const { title, description, tags } = blogPost

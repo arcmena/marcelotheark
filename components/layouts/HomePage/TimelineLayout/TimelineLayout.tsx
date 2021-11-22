@@ -1,5 +1,5 @@
-import SectionTitle from '../../../elements/SectionTitle'
-import TimelineList from '../../../elements/TimelineLayout/TimelineList'
+import SectionTitle from '@components/elements/SectionTitle'
+import TimelineList from '@components/elements/TimelineLayout/TimelineList'
 
 import { TimelineLayoutProps } from './types'
 

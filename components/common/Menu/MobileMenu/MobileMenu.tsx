@@ -1,11 +1,11 @@
 import Header from '../../Header'
-import ContactsLayout from '../../../layouts/ContactsLayout'
-import Link from '../../../elements/Link'
-import ArrowRight from '../../../elements/Icons/ArrowRight'
+import ContactsLayout from '@components/layouts/ContactsLayout'
+import Link from '@components/elements/Link'
+import ArrowRight from '@components/elements/Icons/ArrowRight'
 
-import useWindowSize from '../../../../hooks/useWindowSize'
+import useWindowSize from '@hooks/useWindowSize'
 
-import menuLinks from '../../../../constants/menuLinks'
+import menuLinks from '@constants/menuLinks'
 
 import { MobileMenuProps } from './types'
 

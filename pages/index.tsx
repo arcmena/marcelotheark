@@ -1,18 +1,18 @@
 import type { GetStaticProps, NextPage } from 'next'
 
-import SEO from '../components/common/SEO'
-import HeroLayout from '../components/layouts/HomePage/HeroLayout'
-import ProjectsLayout from '../components/layouts/HomePage/ProjectsLayout'
-import TimelineLayout from '../components/layouts/HomePage/TimelineLayout'
-import BlogPostsLayout from '../components/layouts/HomePage/BlogPostsLayout'
+import SEO from '@components/common/SEO'
+import HeroLayout from '@components/layouts/HomePage/HeroLayout'
+import ProjectsLayout from '@components/layouts/HomePage/ProjectsLayout'
+import TimelineLayout from '@components/layouts/HomePage/TimelineLayout'
+import BlogPostsLayout from '@components/layouts/HomePage/BlogPostsLayout'
 
-import { getProjects } from '../graphql/queries/getProjects'
-import { getTimelines } from '../graphql/queries/getTimeline'
-import { getBlogPostsIndex } from '../graphql/queries/getBlogPostsIndex'
+import { getProjects } from '@graphql/queries/getProjects'
+import { getTimelines } from '@graphql/queries/getTimeline'
+import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 
-import { HomePageProps } from '../types/pages/HomePageTypes'
+import { HomePageProps } from '@localTypes/pages/HomePageTypes'
 
-import { HomePageContainer } from '../styles/pages/HomePageStyles'
+import { HomePageContainer } from '@styles/pages/HomePageStyles'
 
 const HomePage: NextPage<HomePageProps> = ({
   projects,

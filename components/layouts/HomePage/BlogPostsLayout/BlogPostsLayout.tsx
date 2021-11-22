@@ -1,5 +1,5 @@
-import BlogPostItem from '../../../elements/BlogPostsLayout/BlogPostItem'
-import SectionTitle from '../../../elements/SectionTitle'
+import BlogPostItem from '@components/elements/BlogPostsLayout/BlogPostItem'
+import SectionTitle from '@components/elements/SectionTitle'
 
 import { BlogPostsLayouProps } from './types'
 

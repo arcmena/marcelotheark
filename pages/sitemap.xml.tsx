@@ -1,10 +1,10 @@
 import { GetServerSideProps } from 'next'
 import { globby } from 'globby'
 
-import { getBlogPostsIndex } from '../graphql/queries/getBlogPostsIndex'
+import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 
-import { SITE } from '../constants/urls'
-import { getDate } from '../helpers/dateHelpers'
+import { SITE } from '@constants/urls'
+import { getDate } from '@helpers/dateHelpers'
 
 function generateSiteMap(pages: Array<string>) {
   return `<?xml version="1.0" encoding="UTF-8"?>

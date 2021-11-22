@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
-import menuLinks from '../../../constants/menuLinks'
-import { gridLayout } from '../../../helpers/styleHelpers'
+
+import menuLinks from '@constants/menuLinks'
+import { gridLayout } from '@helpers/styleHelpers'
 
 import { HeaderContainerProps } from './types'
 

@@ -1,7 +1,7 @@
-import { CONTACTS } from '../../../constants/urls'
-import Github from '../../elements/Icons/Github'
-import Instagram from '../../elements/Icons/Instagram'
-import LinkedIn from '../../elements/Icons/LinkedIn'
+import { CONTACTS } from '@constants/urls'
+import Github from '@components/elements/Icons/Github'
+import Instagram from '@components/elements/Icons/Instagram'
+import LinkedIn from '@components/elements/Icons/LinkedIn'
 
 import { ContactsLayoutProps } from './types'
 

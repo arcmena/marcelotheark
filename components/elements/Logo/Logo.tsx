@@ -1,6 +1,6 @@
 import Link from '../Link'
 
-import { SITE_URLS } from '../../../constants/urls'
+import { SITE_URLS } from '@constants/urls'
 
 import { LogoContainer, LogoWhite, LogoGradient } from './styles'
 

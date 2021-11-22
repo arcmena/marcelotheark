@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request'
 
-import { apiClient } from '../../config/apiClient'
+import { apiClient } from '@config/apiClient'
 import { TBlogPost } from '../schema'
 
 export const GET_BLOG_POST_DATA = gql`
