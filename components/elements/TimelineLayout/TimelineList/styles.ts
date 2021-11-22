@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const TimelineListContainer = styled.li(
   ({ theme: { fonts, colors } }) => css`
-    h2 {
+    .timeline-list__title {
       font-style: italic;
       font-weight: ${fonts.weight.medium};
       font-size: ${fonts.sizes.lg};

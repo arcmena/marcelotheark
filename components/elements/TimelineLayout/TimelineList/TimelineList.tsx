@@ -7,7 +7,7 @@ import { TimelineListContainer, TimelineListItemWrapper } from './styles'
 export default function TimelineList({ year, items }: TimelineListProps) {
   return (
     <TimelineListContainer>
-      <h3>{year}</h3>
+      <h3 className="timeline-list__title">{year}</h3>
 
       <TimelineListItemWrapper>
         {items.map((item, index) => {

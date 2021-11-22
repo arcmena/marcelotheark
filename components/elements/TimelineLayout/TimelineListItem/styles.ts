@@ -49,7 +49,7 @@ export const TimelineListItemContent = styled.div(
   ({ theme: { fonts, colors, spacing } }) => css`
     margin-left: ${spacing[3]};
 
-    h3 {
+    .timeline-item__title {
       font-style: italic;
       font-weight: ${fonts.weight.medium};
       font-size: ${fonts.sizes.base};

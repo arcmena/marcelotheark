@@ -25,7 +25,7 @@ export const ProjectItemTitle = styled.div(
     justify-content: space-between;
     align-items: center;
 
-    h2 {
+    .project-item__title {
       font-style: italic;
       font-weight: ${fonts.weight.medium};
       font-size: ${fonts.sizes.lg};

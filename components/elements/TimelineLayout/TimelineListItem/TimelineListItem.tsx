@@ -22,7 +22,7 @@ export default function TimelineListItem({
         <Circle />
 
         <TimelineListItemContent>
-          <h4>{title}</h4>
+          <h4 className="timeline-item__title">{title}</h4>
 
           <p>{description}</p>
         </TimelineListItemContent>

@@ -9,7 +9,7 @@ export const BlogPostItemContainer = styled.div(
 
     ${mixins.borderPrimaryGradient}
 
-    h2 {
+    .blog-post-item__title {
       font-style: italic;
       font-weight: ${fonts.weight.medium};
       font-size: ${fonts.sizes.lg};
