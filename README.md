@@ -14,3 +14,4 @@ My personal portfolio and blog!
 - Items pagination
 - Post reaction
 - Post comments
+- Localization
