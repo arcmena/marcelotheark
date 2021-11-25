@@ -23,9 +23,11 @@ export default function Layout({ children }: LayoutProps) {
 
   useEffect(() => {
     router.events.on('hashChangeComplete', handleCloseMobileMenu)
+    router.events.on('routeChangeComplete', handleCloseMobileMenu)
 
     return () => {
       router.events.off('hashChangeComplete', handleCloseMobileMenu)
+      router.events.off('routeChangeComplete', handleCloseMobileMenu)
     }
   }, [router])
 
