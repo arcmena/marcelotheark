@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components'
 
-import { slideRight } from '../../../../styles/animations/slide'
-
 import { MobileMenuContainerProps } from './types'
 
 export const MobileMenuContainer = styled('div')<MobileMenuContainerProps>(
   ({ isOpen, windowSize, theme: { mixins, colors } }) => css`
-    display: ${isOpen ? 'block' : 'none'};
+    opacity: ${isOpen ? '1' : '0'};
+    transform: translateX(${isOpen ? '0' : '+100%'});
+
+    transition: transform 0.2s, opacity 0.2s;
 
     ${windowSize &&
     css`
@@ -16,11 +17,10 @@ export const MobileMenuContainer = styled('div')<MobileMenuContainerProps>(
       position: fixed;
 
       top: 0;
-      right: -${windowSize.width}px;
+      right: 0;
+      left: 0;
 
       z-index: 20;
-
-      animation: ${slideRight} 0.5s forwards;
     `}
 
     background-color: ${colors.dark};
