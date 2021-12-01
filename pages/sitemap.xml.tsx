@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const { res } = context
 
   const staticPages = fs
-    .readdirSync(isProduction() ? 'pages' : './')
+    .readdirSync(isProduction() ? './' : 'pages')
     .filter(staticPage => {
       return ![
         '_app.tsx',
