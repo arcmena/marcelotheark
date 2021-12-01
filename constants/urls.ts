@@ -10,7 +10,7 @@ export const SITE_URLS = {
   TIMELINE: '/#timeline',
   BLOG_POSTS: '/#blog-posts',
   CONTACTS: '/#contacts',
-  BLOG_POST: '/blog/post/'
+  BLOG_POST: '/blog/'
 }
 
 export const GRADIENTS = {

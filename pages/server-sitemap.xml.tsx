@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const blogPosts = await getBlogPostsIndex()
 
   const postPages = blogPosts.map(({ slug }) => ({
-    loc: `${SITE}/blog/post/${slug}`,
+    loc: `${SITE}/blog/${slug}`,
     lastmod: getDate().toISOString()
   }))
 
