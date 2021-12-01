@@ -4,6 +4,7 @@ import fs from 'fs'
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 
 import { SITE } from '@constants/urls'
+import { isProduction } from '@constants/globalConstants'
 import { getDate } from '@helpers/dateHelpers'
 
 function generateSiteMap(pages: Array<string>) {
@@ -35,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const { res } = context
 
   const staticPages = fs
-    .readdirSync('pages')
+    .readdirSync(isProduction() ? 'pages' : './')
     .filter(staticPage => {
       return ![
         '_app.tsx',
