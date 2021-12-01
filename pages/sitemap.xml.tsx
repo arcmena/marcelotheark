@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import { globby } from 'globby'
+import fs from 'fs'
 
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 
@@ -34,18 +34,24 @@ function SiteMap() {
 export const getServerSideProps: GetServerSideProps = async context => {
   const { res } = context
 
-  const allPages = await globby(['./pages/**/*.tsx', '!./pages/_*.tsx'])
-  const localPages = allPages
-    .filter(page => !page.includes('[slug]'))
-    .map(page =>
-      page.replace('./pages', '').replace('/index', '/').replace('.tsx', '')
-    )
+  const staticPages = fs
+    .readdirSync('pages')
+    .filter(staticPage => {
+      return ![
+        '_app.tsx',
+        '_document.tsx',
+        '_error.tsx',
+        'sitemap.xml.tsx',
+        'blog'
+      ].includes(staticPage)
+    })
+    .map(staticPage => staticPage.replace('index.tsx', '/'))
 
   const blogPosts = await getBlogPostsIndex()
 
   const postPages = blogPosts.map(({ slug }) => `/blog/post/${slug}`)
 
-  const pages = [...localPages, ...postPages]
+  const pages = [...staticPages, ...postPages]
 
   const sitemap = generateSiteMap(pages)
 
