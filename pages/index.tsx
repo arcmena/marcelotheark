@@ -23,7 +23,7 @@ const HomePage: NextPage<HomePageProps> = ({
     <>
       <SEO
         title="Marcelo The Ark | Front End Developer"
-        description="Marcelo Mena - Front End Developer"
+        description="Marcelo Mena - Self taught Brazilian Front End Developer. Contents regarding React, JavaScript, TypeScript and all around development topics."
       />
 
       <HomePageContainer>
