@@ -3,25 +3,22 @@ import styled, { css } from 'styled-components'
 import { MobileMenuContainerProps } from './types'
 
 export const MobileMenuContainer = styled('div')<MobileMenuContainerProps>(
-  ({ isOpen, windowSize, theme: { mixins, colors } }) => css`
+  ({ isOpen, theme: { colors } }) => css`
     opacity: ${isOpen ? '1' : '0'};
     transform: translateX(${isOpen ? '0' : '+100%'});
 
     transition: transform 0.2s, opacity 0.2s;
 
-    ${windowSize &&
-    css`
-      width: ${windowSize.width}px;
-      height: ${windowSize.height}px;
+    width: 100%;
+    height: 100%;
 
-      position: fixed;
+    position: fixed;
 
-      top: 0;
-      right: 0;
-      left: 0;
+    top: 0;
+    right: 0;
+    left: 0;
 
-      z-index: 20;
-    `}
+    z-index: 20;
 
     background-color: ${colors.dark};
   `

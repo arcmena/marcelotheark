@@ -9,6 +9,5 @@ export interface MobileMenuProps {
 }
 
 export interface MobileMenuContainerProps {
-  windowSize: TWindowSize
   isOpen: boolean
 }

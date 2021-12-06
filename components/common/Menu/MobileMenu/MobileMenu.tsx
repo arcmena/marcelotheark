@@ -3,8 +3,6 @@ import ContactsLayout from '@components/layouts/ContactsLayout'
 import Link from '@components/elements/Link'
 import ArrowRight from '@components/elements/Icons/ArrowRight'
 
-import useWindowSize from '@hooks/useWindowSize'
-
 import menuLinks from '@constants/menuLinks'
 
 import { MobileMenuProps } from './types'
@@ -21,14 +19,8 @@ export default function MobileMenu({
   handleCloseMobileMenu,
   mobileMenuRef
 }: MobileMenuProps) {
-  const windowSize = useWindowSize()
-
   return (
-    <MobileMenuContainer
-      isOpen={isMobileMenuOpen}
-      windowSize={windowSize}
-      ref={mobileMenuRef}
-    >
+    <MobileMenuContainer isOpen={isMobileMenuOpen} ref={mobileMenuRef}>
       <Header handleCloseMobileMenu={handleCloseMobileMenu} isAlternate />
 
       <MobileMenuBody>
