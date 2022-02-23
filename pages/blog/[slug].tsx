@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
+import * as mdx from '@mdx-js/react';
 
 import SEO from '@components/common/SEO'
 import BlogPostResponsiveImage from '@components/elements/BlogPost/BlogPostResponsiveImage'
@@ -28,7 +29,7 @@ const postComponents = {
   h1: BlogPostH1,
   h2: BlogPostH2,
   p: BlogPostParagraph
-}
+} as React.ComponentProps<typeof mdx.MDXProvider>['components']
 
 export default function BlogPostPage({
   postData,
