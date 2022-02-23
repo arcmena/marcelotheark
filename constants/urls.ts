@@ -3,7 +3,8 @@ export const SITE =
     ? 'https://marcelotheark.com'
     : 'http://localhost:3000'
 
-export const PAGES_DIR = process.env.NODE_ENV === 'production' ? './' : 'pages'
+export const PAGES_DIR =
+  process.env.NODE_ENV === 'production' ? './.next/server/pages' : 'pages'
 
 export const SITE_URLS = {
   HOME: '/',
