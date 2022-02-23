@@ -6,6 +6,26 @@ import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 import { PAGES_DIR, SITE } from '@constants/urls'
 import { getDate } from '@helpers/dateHelpers'
 
+const BLACKLISTED_PATHS = [
+  '_app.tsx',
+  '_document.tsx',
+  '_error.tsx',
+  'sitemap.xml.tsx',
+  'blog',
+  '.next',
+  '___next_launcher.js',
+  '___vc_bridge.js',
+  'components',
+  'config',
+  'constants',
+  'graphql',
+  'helpers',
+  'lib',
+  'node_modules',
+  'package.json',
+  'styles'
+]
+
 export default function Sitemap() {
   //
 }
@@ -17,16 +37,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
   const staticPages = fs
     .readdirSync(PAGES_DIR)
-    .filter(
-      staticPagePath =>
-        ![
-          '_app.tsx',
-          '_document.tsx',
-          '_error.tsx',
-          'sitemap.xml.tsx',
-          'blog'
-        ].includes(staticPagePath)
-    )
+    .filter(staticPagePath => !BLACKLISTED_PATHS.includes(staticPagePath))
     .map(staticPagePath => staticPagePath.replace('.tsx', ''))
     .map(
       staticPagePath =>
