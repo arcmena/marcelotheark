@@ -3,7 +3,7 @@ import fs from 'fs'
 
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 
-import { SITE } from '@constants/urls'
+import { PAGES_DIR, SITE } from '@constants/urls'
 import { getDate } from '@helpers/dateHelpers'
 
 export default function Sitemap() {
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const postPages = blogPosts.map(({ slug }) => `${SITE}/blog/${slug}`)
 
   const staticPages = fs
-    .readdirSync('pages')
+    .readdirSync(PAGES_DIR)
     .filter(
       staticPagePath =>
         ![
