@@ -11,7 +11,6 @@ My personal portfolio and blog!
 
 ## Incoming features:
 
-- Items pagination
-- Post reaction
-- Post comments
-- Localization
+- Redesign
+- About page
+- Blog posts page
