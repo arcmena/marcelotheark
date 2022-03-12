@@ -1,4 +1,4 @@
-import Header from '../../Header'
+import Header from '../../Header1'
 import ContactsLayout from '@components/layouts/ContactsLayout'
 import Link from '@components/elements/Link'
 import ArrowRight from '@components/elements/Icons/ArrowRight'

@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+export const NewHomePageContainer = styled.div(() => css``)
+
 export const HomePageContainer = styled.div(
   ({ theme: { spacing, sizes } }) => css`
     section {

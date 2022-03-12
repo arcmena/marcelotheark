@@ -1,18 +1,35 @@
 import styled, { css } from 'styled-components'
 
 export const FooterContainer = styled.footer(
-  ({ theme: { spacing, fonts, mixins } }) => css`
-    display: flex;
-    justify-content: center;
+  ({ theme: { fonts, colors, spacing, mixins } }) => css`
+    margin-top: ${spacing[16]};
+    font-size: ${fonts.sizes.lg};
 
-    padding: ${spacing[1]} 0;
+    .divider {
+      ${mixins.primaryGradient};
+      height: 1px;
+    }
 
-    ${mixins.primaryGradient}
+    p {
+      max-width: 85%;
+      margin: ${spacing[6]} auto 0;
 
-    margin-top: ${spacing[20]};
+      text-align: center;
+      color: ${colors.gray};
+      line-height: ${spacing[6]};
+    }
 
-    span {
-      font-size: ${fonts.sizes.base};
+    a {
+      color: ${colors.light};
+      font-weight: ${fonts.weight.medium};
+    }
+
+    .links {
+      margin: ${spacing[10]} auto 0;
+      display: flex;
+      justify-content: space-between;
+
+      max-width: 85%;
     }
   `
 )
