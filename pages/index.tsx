@@ -1,4 +1,6 @@
 import SEO from '@components/common/SEO'
+import Hero from './home/components/Hero'
+import LatestArticles from './home/components/LatestArticles'
 
 import { NewHomePageContainer } from '@styles/pages/HomePageStyles'
 
@@ -13,7 +15,10 @@ export default function Home() {
     <>
       <SEO {...SEOContent} />
 
-      <NewHomePageContainer>home page</NewHomePageContainer>
+      <NewHomePageContainer>
+        <Hero />
+        <LatestArticles />
+      </NewHomePageContainer>
     </>
   )
 }

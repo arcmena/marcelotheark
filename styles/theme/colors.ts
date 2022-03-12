@@ -5,7 +5,7 @@ const colors = Object.freeze({
   light: '#FBFBFB',
   gray: '#ABB3D7',
   clearPurple: '#D5CFFF',
-  lightPurple: '#D2CBE'
+  lightPurple: '#D2CBE1'
 })
 
 export { colors }
