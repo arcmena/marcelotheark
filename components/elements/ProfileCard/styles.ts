@@ -57,7 +57,7 @@ export const ProfileCardLinks = styled.div(
 export const ProfileCardLeftBorder = styled.div(
   ({ theme: { mixins } }) => css`
     ${mixins.primaryGradientToTop}
-    width: 4px;
+    min-width: 4px;
     border-radius: 4px 0 0 4px;
   `
 )
