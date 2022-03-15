@@ -24,7 +24,7 @@ export const marginY = (size: string) => css`
   margin-bottom: ${size};
 `
 
-export const marginZ = (size: string) => css`
+export const marginX = (size: string) => css`
   margin-left: ${size};
   margin-right: ${size};
 `
@@ -34,7 +34,7 @@ export const paddingY = (size: string) => css`
   padding-bottom: ${size};
 `
 
-export const paddingZ = (size: string) => css`
+export const paddingX = (size: string) => css`
   padding-left: ${size};
   padding-right: ${size};
 `
