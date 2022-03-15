@@ -2,6 +2,7 @@ import { GRADIENTS } from '../../constants/urls'
 
 const mixins = Object.freeze({
   primaryGradient: 'background: linear-gradient(to right, #6417CB, #74C6FA);',
+  primaryGradientToTop: 'background: linear-gradient(to top,#6417CB,#74C6FA);',
   backgroundLowOpacity:
     'background: linear-gradient(to right, rgba(100, 23, 203, 0.3), rgba(116, 198, 250, 0.3));',
   textPrimaryGradient:

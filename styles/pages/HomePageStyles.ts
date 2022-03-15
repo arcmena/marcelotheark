@@ -1,8 +1,14 @@
 import styled, { css } from 'styled-components'
 
-export const NewHomePageContainer = styled.div(() => css``)
-
 export const HomePageContainer = styled.div(
+  ({ theme: { spacing } }) => css`
+    .profileCard {
+      margin: ${spacing[12]} ${spacing[6]} 0;
+    }
+  `
+)
+
+export const HomePageContainer1 = styled.div(
   ({ theme: { spacing, sizes } }) => css`
     section {
       &:not(:first-child) {

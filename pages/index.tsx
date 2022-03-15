@@ -1,8 +1,9 @@
 import SEO from '@components/common/SEO'
+import ProfileCard from '@components/elements/ProfileCard'
 import Hero from './home/components/Hero'
 import LatestArticles from './home/components/LatestArticles'
 
-import { NewHomePageContainer } from '@styles/pages/HomePageStyles'
+import { HomePageContainer } from '@styles/pages/HomePageStyles'
 
 const SEOContent = {
   title: 'Marcelo The Ark | Front End Developer',
@@ -15,10 +16,11 @@ export default function Home() {
     <>
       <SEO {...SEOContent} />
 
-      <NewHomePageContainer>
+      <HomePageContainer>
         <Hero />
+        <ProfileCard />
         <LatestArticles />
-      </NewHomePageContainer>
+      </HomePageContainer>
     </>
   )
 }
