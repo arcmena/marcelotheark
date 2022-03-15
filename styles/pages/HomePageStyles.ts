@@ -1,12 +1,14 @@
 import styled, { css } from 'styled-components'
 
+import { marginX } from '@helpers/styleHelpers'
+
 export const HomePageContainer = styled.div(
   ({ theme: { spacing } }) => css`
     .profileCard {
-      margin: ${spacing[12]} 0  0;
+      margin-top: ${spacing[12]};
     }
 
-    margin: 0 ${spacing[6]};
+    ${marginX(spacing[6])}
   `
 )
 
