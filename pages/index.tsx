@@ -1,7 +1,7 @@
 import SEO from '@components/common/SEO'
 import ProfileCard from '@components/elements/ProfileCard'
-import Hero from '@components/layouts/HomePage/components/Hero'
-import LatestArticles from '@components/layouts/HomePage/components/LatestArticles'
+import Hero from '@components/layouts/HomePage/Hero'
+import LatestArticles from '@components/layouts/HomePage/LatestArticles'
 
 import { HomePageContainer } from '@styles/pages/HomePageStyles'
 
