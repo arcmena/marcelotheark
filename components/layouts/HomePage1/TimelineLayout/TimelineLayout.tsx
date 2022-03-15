@@ -1,4 +1,4 @@
-import SectionTitle from '@components/elements/SectionTitle'
+import SectionTitle from '@components/elements/SectionTitle1'
 import TimelineList from '@components/elements/TimelineLayout/TimelineList'
 
 import { TimelineLayoutProps } from './types'

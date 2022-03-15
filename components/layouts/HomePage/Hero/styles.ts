@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const HeroContainer = styled.div(
+export const HeroContainer = styled.section(
   ({ theme: { spacing, colors, fonts } }) => css`
     margin-top: ${spacing[6]};
-    padding: 0 ${spacing[6]};
 
     h1 {
       color: ${colors.light};

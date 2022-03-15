@@ -3,8 +3,10 @@ import styled, { css } from 'styled-components'
 export const HomePageContainer = styled.div(
   ({ theme: { spacing } }) => css`
     .profileCard {
-      margin: ${spacing[12]} ${spacing[6]} 0;
+      margin: ${spacing[12]} 0  0;
     }
+
+    margin: 0 ${spacing[6]};
   `
 )
 
