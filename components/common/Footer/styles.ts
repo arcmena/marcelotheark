@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export const FooterContainer = styled.footer(
   ({ theme: { fonts, colors, spacing, mixins } }) => css`
     margin-top: ${spacing[16]};
+    padding-bottom: ${spacing[10]};
     font-size: ${fonts.sizes.lg};
 
     .divider {
