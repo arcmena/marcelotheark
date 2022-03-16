@@ -18,7 +18,7 @@ const BlogPostCard = ({
 }) => {
   return (
     //@ts-ignore
-    <Card as={Link} href={`/${title}`}>
+    <Card as={Link} href="/blog/lorem-ipsum-dolor-sit-amet">
       <BlogPostCardTitle>{title}</BlogPostCardTitle>
       <BlogPostCardDate>{date}</BlogPostCardDate>
       <BlogPostCardShortDescription>{description}</BlogPostCardShortDescription>
