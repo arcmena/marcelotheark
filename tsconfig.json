@@ -26,7 +26,8 @@
       "@lib/*": ["lib/*"],
       "@graphql/*": ["graphql/*"],
       "@config/*": ["config/*"],
-      "@localTypes/*": ["types/*"]
+      "@localTypes/*": ["types/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
