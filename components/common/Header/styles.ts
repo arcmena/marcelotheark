@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export const HeaderContainer = styled.header(
   ({ theme: { spacing, fonts, colors } }) => css`
     padding: ${spacing[6]};
+    margin-bottom: ${spacing[6]};
 
     display: flex;
     justify-content: space-between;

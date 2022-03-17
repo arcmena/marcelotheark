@@ -12,7 +12,8 @@ const mixins = Object.freeze({
     border-image-source: url(${GRADIENTS.BORDER_GRADIENT}); 
     border-image-slice: 4; 
     border-style: solid; 
-    border-width: 3px;
+    border-width: 1px;
+    border-radius: 4px;
   `,
   gradientPrimaryToTransparent:
     'background: linear-gradient(to right, #6417CB, rgba(100, 23, 203, 0));'
