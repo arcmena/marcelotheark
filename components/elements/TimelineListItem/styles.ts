@@ -52,7 +52,7 @@ export const TimelineListItemContent = styled.div(
     .timeline-item__title {
       font-style: italic;
       font-weight: ${fonts.weight.medium};
-      font-size: ${fonts.sizes.base};
+      font-size: ${fonts.sizes.lg};
       line-height: 18px;
 
       color: ${colors.light};
@@ -61,9 +61,9 @@ export const TimelineListItemContent = styled.div(
     p {
       margin-top: ${spacing[2]};
 
-      font-size: ${fonts.sizes.sm};
-      line-height: 14px;
-      color: ${transparentize(0.1, colors.light)};
+      font-size: ${fonts.sizes.base};
+      line-height: 19px;
+      color: ${transparentize(0.2, colors.light)};
     }
   `
 )

@@ -3,7 +3,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import SEO from '@components/common/SEO'
 import HeroLayout from '@components/layouts/HomePage1/HeroLayout'
 import ProjectsLayout from '@components/layouts/HomePage1/ProjectsLayout'
-import TimelineLayout from '@components/layouts/HomePage1/TimelineLayout'
+import TimelineLayout from '@components/layouts/TimelineLayout'
 import BlogPostsLayout from '@components/layouts/HomePage1/BlogPostsLayout'
 
 import { getProjects } from '@graphql/queries/getProjects'

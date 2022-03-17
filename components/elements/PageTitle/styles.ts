@@ -6,5 +6,6 @@ export const PageTitleContainer = styled.h1(
     font-weight: ${fonts.weight.semibold};
     color: ${colors.light};
     letter-spacing: 2px;
+    line-height: 105%;
   `
 )
