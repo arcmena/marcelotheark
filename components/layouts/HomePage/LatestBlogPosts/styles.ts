@@ -1,3 +1,5 @@
+import { gridLayout } from '@helpers/styleHelpers'
+
 import styled, { css } from 'styled-components'
 
 export const LatestBlogPostsContainer = styled.section(
@@ -10,7 +12,7 @@ export const LatestBlogPostsItems = styled.div(
   ({ theme: { spacing } }) => css`
     display: flex;
     flex-direction: column;
-    gap: ${spacing[7]};
+    ${gridLayout({ columns: 1, gap: spacing[7] })}
 
     margin-top: ${spacing[7]};
   `

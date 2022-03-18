@@ -1,5 +1,6 @@
-import { gridLayout } from '@helpers/styleHelpers'
 import styled, { css } from 'styled-components'
+
+import { paddingX, paddingY } from '@helpers/styleHelpers'
 
 export const ProfileCardContainer = styled.div.attrs({
   className: 'profileCard'
@@ -15,7 +16,8 @@ export const ProfileCardContainer = styled.div.attrs({
 
 export const ProfileCardInner = styled.div(
   ({ theme: { spacing } }) => css`
-    padding: ${spacing[5]};
+    ${paddingX(spacing[2])}
+    ${paddingY(spacing[5])}
 
     display: flex;
   `
