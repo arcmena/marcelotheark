@@ -1,13 +1,13 @@
+import { Fragment } from 'react'
+
 import SEO from '@components/common/SEO'
 import PageTitle from '@components/elements/PageTitle'
-import SectionTitle from '@components/elements/SectionTitle'
-import TimelineLayout from '@components/layouts/TimelineLayout'
+import Timeline from '@components/layouts/AboutPage/Timeline'
+
 import {
   AboutPageContainer,
   AboutPageIntroduction,
-  AboutPageTimeline
 } from '@styles/pages/AboutPageStyles'
-import { Fragment } from 'react'
 
 const SEOContent = {
   title: 'About me | Marcelo the ark - Front End Developer',
@@ -119,11 +119,7 @@ export default function AboutPage() {
 
         <AboutPageIntroduction>{aboutContent}</AboutPageIntroduction>
 
-        <AboutPageTimeline>
-          <SectionTitle>The road so far...</SectionTitle>
-
-          <TimelineLayout timelines={timelineData} />
-        </AboutPageTimeline>
+        <Timeline timelines={timelineData} />
       </AboutPageContainer>
     </>
   )
