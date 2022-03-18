@@ -1,7 +1,12 @@
+import { GetStaticProps } from 'next'
+
 import SEO from '@components/common/SEO'
 import BlogPostCard from '@components/elements/BlogPostCard'
 import Input from '@components/elements/Input'
 import PageTitle from '@components/elements/PageTitle'
+
+import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
+import { TBlogPost } from '@graphql/schema'
 
 import {
   BlogPostPageDescription,
@@ -10,19 +15,17 @@ import {
   BlogPostsPageContainer
 } from '@styles/pages/BlogPostsPageStyles'
 
-const blogPosts = [...new Array(3)].map(() => ({
-  title: 'Lorem ipsum dolor sit amet',
-  date: 'November 9, 2021',
-  description: 'Consectetur adipiscing merol muspi...'
-}))
-
 const SEOContent = {
   title: 'Blog Posts | Marcelo the ark - Front End Developer',
   description:
     'Blog posts / Writings and studies dedicated to the dev community 💝'
 }
 
-export default function BlogPostsPage() {
+interface BlogPostsPageProps {
+  blogPosts: Array<TBlogPost>
+}
+
+export default function BlogPostsPage({ blogPosts }: BlogPostsPageProps) {
   return (
     <>
       <SEO {...SEOContent} />
@@ -40,11 +43,21 @@ export default function BlogPostsPage() {
         </BlogPostPageSearchInput>
 
         <BlogPostPageResults>
-          {blogPosts.map(item => (
-            <BlogPostCard key={item.title} {...item} />
+          {blogPosts.map(blogPost => (
+            <BlogPostCard key={blogPost.id} {...blogPost} />
           ))}
         </BlogPostPageResults>
       </BlogPostsPageContainer>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const blogPosts = await getBlogPostsIndex()
+
+  return {
+    props: {
+      blogPosts
+    }
+  }
 }
