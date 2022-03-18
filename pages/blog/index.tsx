@@ -29,6 +29,7 @@ export default function BlogPostsPage() {
 
       <BlogPostsPageContainer>
         <PageTitle label="Blog Posts" />
+
         <BlogPostPageDescription>
           Writings and studies that I dedicate some time to share with the
           community 💝

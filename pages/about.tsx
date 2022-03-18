@@ -40,11 +40,8 @@ export default function AboutPage({ timelines, projects }: AboutPageProps) {
 
       <AboutPageContainer>
         <PageTitle label={titleContent} />
-
         <AboutPageIntroduction>{AboutMeContent}</AboutPageIntroduction>
-
         <Timeline timelines={timelines} />
-
         <Projects projects={projects} />
       </AboutPageContainer>
     </>
