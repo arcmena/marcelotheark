@@ -7,7 +7,7 @@ const BlogPostParagraph = styled.p(
     line-height: 24px;
 
     & + p {
-      margin-top: ${spacing[6]};
+      margin-top: ${spacing[3]};
     }
   `
 )
