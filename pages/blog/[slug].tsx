@@ -1,16 +1,19 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
-import * as mdx from '@mdx-js/react';
+import * as mdx from '@mdx-js/react'
 
 import SEO from '@components/common/SEO'
-import BlogPostResponsiveImage from '@components/elements/BlogPost/BlogPostResponsiveImage'
-import BlogPostH2 from '@components/elements/BlogPost/BlogPostH2'
-import BlogPostParagraph from '@components/elements/BlogPost/BlogPostParagraph'
-import BlogPostH1 from '@components/elements/BlogPost/BlogPostH1'
+import BlogPostResponsiveImage from '@components/elements/BlogPostContent/BlogPostResponsiveImage'
+import BlogPostH2 from '@components/elements/BlogPostContent/BlogPostH2'
+import BlogPostParagraph from '@components/elements/BlogPostContent/BlogPostParagraph'
+import BlogPostH1 from '@components/elements/BlogPostContent/BlogPostH1'
+import PageTitle from '@components/elements/PageTitle'
+import RelatedBlogPosts from '@components/layouts/BlogPostPage/RelatedBlogPosts'
 
 import { getBlogPostData } from '@graphql/queries/getBlogPostData'
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
+import { getRelatedPostsIndex } from '@graphql/queries/getRelatedPostsIndex'
 
 import { blogPostSEO } from '@helpers/blogPostHelpers'
 import { getFullDate } from '@helpers/dateHelpers'
@@ -18,14 +21,16 @@ import { getFullDate } from '@helpers/dateHelpers'
 import { BlogPostPageProps } from '@localTypes/pages/BlogPostPageTypes'
 
 import {
-  BlogPostContainer,
+  BlogPostPageContainer,
   BlogPostContentContainer,
+  BlogPostSubtitle,
+  BlogPostImageContainer,
   BlogPostInfo,
-  BlogPostTitle
+  BlogPostInfoTags
 } from '@styles/pages/BlogPostPageStyles'
+import ProfileCard from '@components/elements/ProfileCard'
 
 const postComponents = {
-  img: BlogPostResponsiveImage,
   h1: BlogPostH1,
   h2: BlogPostH2,
   p: BlogPostParagraph
@@ -33,29 +38,43 @@ const postComponents = {
 
 export default function BlogPostPage({
   postData,
-  mdContent
+  mdContent,
+  relatedBlogPosts
 }: BlogPostPageProps) {
-  const { title, createdAt, tags } = postData
-
-  const { seoTitle, seoDescription } = blogPostSEO(postData)
-
-  const joinedTags = tags.join(', ')
+  const { title, createdAt, tags, postCover, subtitle } = postData
 
   return (
     <>
-      <SEO title={seoTitle} description={seoDescription} />
+      <SEO {...blogPostSEO(postData)} />
 
-      <BlogPostContainer>
-        <BlogPostTitle>{title}</BlogPostTitle>
+      <BlogPostPageContainer>
+        <PageTitle label={title} />
+
+        <BlogPostSubtitle>{subtitle}</BlogPostSubtitle>
+
+        <BlogPostImageContainer>
+          <BlogPostResponsiveImage src={postCover.url} alt={title} />
+        </BlogPostImageContainer>
 
         <BlogPostInfo>
-          <span>{getFullDate(createdAt)}</span> <span>{joinedTags}</span>
+          <span>Published on {getFullDate(createdAt)}</span> in{' '}
+          {tags.map((tag, index) => (
+            <>
+              <BlogPostInfoTags key={tag}>{tag}</BlogPostInfoTags>
+              {index + 1 !== tags.length && ', '}
+            </>
+          ))}
+          . Authored by:
         </BlogPostInfo>
+
+        <ProfileCard />
 
         <BlogPostContentContainer>
           <MDXRemote {...mdContent} components={postComponents} />
         </BlogPostContentContainer>
-      </BlogPostContainer>
+
+        <RelatedBlogPosts relatedBlogPosts={relatedBlogPosts} />
+      </BlogPostPageContainer>
     </>
   )
 }
@@ -75,13 +94,15 @@ export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params as { slug: string }
 
   const postData = await getBlogPostData(slug)
-
   const mdContent = await serialize(postData.content)
+
+  const relatedBlogPosts = await getRelatedPostsIndex(postData.tags, slug)
 
   return {
     props: {
       postData,
-      mdContent
+      mdContent,
+      relatedBlogPosts
     }
   }
 }

@@ -11,8 +11,17 @@ export const GET_BLOG_POST_DATA = gql`
       tags
       title
       description
+      subtitle
       content
       createdAt
+      postCover {
+        url(
+          transformation: {
+            image: { resize: { width: 800, height: 600 } }
+            document: { output: { format: png } }
+          }
+        )
+      }
     }
   }
 `

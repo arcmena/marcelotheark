@@ -1,6 +1,18 @@
 import styled, { css } from 'styled-components'
 
+import { marginX } from '@helpers/styleHelpers'
+
 export const HomePageContainer = styled.div(
+  ({ theme: { spacing } }) => css`
+    .profileCard {
+      margin-top: ${spacing[12]};
+    }
+
+    ${marginX(spacing[6])}
+  `
+)
+
+export const HomePageContainer1 = styled.div(
   ({ theme: { spacing, sizes } }) => css`
     section {
       &:not(:first-child) {

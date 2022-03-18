@@ -4,12 +4,13 @@ import { useRouter } from 'next/router'
 import { ThemeProvider } from 'styled-components'
 
 import GoogleAnalytics from '@components/common/GoogleAnalytics/GoogleAnalytics'
-import Layout from '@components/common/Layout'
+import Layout from '@components/common/Layout1'
 
 import * as gtag from '@lib/gtag'
 
 import GlobalStyles from '@styles/global'
 import theme from '@styles/theme'
+import NewLayout from '@components/common/Layout'
 
 declare global {
   interface Window {
@@ -38,9 +39,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Layout>
+        <NewLayout>
           <Component {...pageProps} />
-        </Layout>
+        </NewLayout>
       </ThemeProvider>
     </>
   )

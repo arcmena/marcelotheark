@@ -1,53 +1,47 @@
-import type { GetStaticProps, NextPage } from 'next'
+import { GetStaticProps } from 'next'
 
 import SEO from '@components/common/SEO'
-import HeroLayout from '@components/layouts/HomePage/HeroLayout'
-import ProjectsLayout from '@components/layouts/HomePage/ProjectsLayout'
-import TimelineLayout from '@components/layouts/HomePage/TimelineLayout'
-import BlogPostsLayout from '@components/layouts/HomePage/BlogPostsLayout'
+import ProfileCard from '@components/elements/ProfileCard'
+import Hero from '@components/layouts/HomePage/Hero'
+import LatestBlogPosts from '@components/layouts/HomePage/LatestBlogPosts'
 
-import { getProjects } from '@graphql/queries/getProjects'
-import { getTimelines } from '@graphql/queries/getTimeline'
+import { TBlogPost } from '@graphql/schema'
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
-
-import { HomePageProps } from '@localTypes/pages/HomePageTypes'
 
 import { HomePageContainer } from '@styles/pages/HomePageStyles'
 
-const HomePage: NextPage<HomePageProps> = ({
-  projects,
-  timelines,
-  blogPosts
-}) => {
+const SEOContent = {
+  title: 'Marcelo the ark | Front End Developer',
+  description:
+    'Marcelo Mena - Self taught Brazilian Front End Developer. Contents regarding React, JavaScript, TypeScript and all around development topics.'
+}
+
+interface HomePageProps {
+  latestBlogPosts: Array<TBlogPost>
+}
+
+export default function HomePage({ latestBlogPosts }: HomePageProps) {
   return (
     <>
-      <SEO
-        title="Marcelo The Ark | Front End Developer"
-        description="Marcelo Mena - Self taught Brazilian Front End Developer. Contents regarding React, JavaScript, TypeScript and all around development topics."
-      />
+      <SEO {...SEOContent} />
 
       <HomePageContainer>
-        <HeroLayout />
-        <ProjectsLayout projects={projects} />
-        <TimelineLayout timelines={timelines} />
-        <BlogPostsLayout blogPosts={blogPosts} />
+        <Hero />
+
+        <ProfileCard />
+
+        <LatestBlogPosts latestBlogPosts={latestBlogPosts} />
       </HomePageContainer>
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects = await getProjects()
-  const timelines = await getTimelines()
-  const blogPosts = await getBlogPostsIndex()
+  const latestBlogPosts = await getBlogPostsIndex()
 
   return {
     props: {
-      projects,
-      timelines,
-      blogPosts
+      latestBlogPosts
     }
   }
 }
-
-export default HomePage
