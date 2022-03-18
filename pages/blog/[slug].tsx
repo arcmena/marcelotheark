@@ -4,14 +4,16 @@ import { MDXRemote } from 'next-mdx-remote'
 import * as mdx from '@mdx-js/react'
 
 import SEO from '@components/common/SEO'
-import BlogPostResponsiveImage from '@components/elements/BlogPost/BlogPostResponsiveImage'
-import BlogPostH2 from '@components/elements/BlogPost/BlogPostH2'
-import BlogPostParagraph from '@components/elements/BlogPost/BlogPostParagraph'
-import BlogPostH1 from '@components/elements/BlogPost/BlogPostH1'
+import BlogPostResponsiveImage from '@components/elements/BlogPostContent/BlogPostResponsiveImage'
+import BlogPostH2 from '@components/elements/BlogPostContent/BlogPostH2'
+import BlogPostParagraph from '@components/elements/BlogPostContent/BlogPostParagraph'
+import BlogPostH1 from '@components/elements/BlogPostContent/BlogPostH1'
 import PageTitle from '@components/elements/PageTitle'
+import RelatedBlogPosts from '@components/layouts/BlogPostPage/RelatedBlogPosts'
 
 import { getBlogPostData } from '@graphql/queries/getBlogPostData'
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
+import { getRelatedPostsIndex } from '@graphql/queries/getRelatedPostsIndex'
 
 import { blogPostSEO } from '@helpers/blogPostHelpers'
 import { getFullDate } from '@helpers/dateHelpers'
@@ -36,7 +38,8 @@ const postComponents = {
 
 export default function BlogPostPage({
   postData,
-  mdContent
+  mdContent,
+  relatedBlogPosts
 }: BlogPostPageProps) {
   const { title, createdAt, tags, postCover, subtitle } = postData
 
@@ -69,6 +72,8 @@ export default function BlogPostPage({
         <BlogPostContentContainer>
           <MDXRemote {...mdContent} components={postComponents} />
         </BlogPostContentContainer>
+
+        <RelatedBlogPosts relatedBlogPosts={relatedBlogPosts} />
       </BlogPostPageContainer>
     </>
   )
@@ -89,13 +94,15 @@ export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params as { slug: string }
 
   const postData = await getBlogPostData(slug)
-
   const mdContent = await serialize(postData.content)
+
+  const relatedBlogPosts = await getRelatedPostsIndex(postData.tags, slug)
 
   return {
     props: {
       postData,
-      mdContent
+      mdContent,
+      relatedBlogPosts
     }
   }
 }

@@ -1,4 +1,4 @@
-import { marginX } from '@helpers/styleHelpers'
+import { gridLayout, marginX } from '@helpers/styleHelpers'
 import styled, { css } from 'styled-components'
 
 export const BlogPostsPageContainer = styled.div(
@@ -31,8 +31,6 @@ export const BlogPostPageResults = styled.section(
   ({ theme: { spacing } }) => css`
     margin-top: ${spacing[11]};
 
-    display: flex;
-    flex-direction: column;
-    gap: ${spacing[5]};
+    ${gridLayout({ columns: 1, gap: spacing[5] })}
   `
 )
