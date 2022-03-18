@@ -11,6 +11,7 @@ export const GET_BLOG_POSTS_INDEX = gql`
       slug
       title
       tags
+      subtitle
     }
   }
 `

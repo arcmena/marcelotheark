@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components'
 
-export const LatestArticlesContainer = styled.section(
+export const LatestBlogPostsContainer = styled.section(
   ({ theme: { spacing } }) => css`
     margin-top: ${spacing[12]};
   `
 )
 
-export const LatestArticlesItems = styled.div(
+export const LatestBlogPostsItems = styled.div(
   ({ theme: { spacing } }) => css`
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@ export const LatestArticlesItems = styled.div(
   `
 )
 
-export const LatestArticlesMore = styled.div(
+export const LatestBlogPostsMore = styled.div(
   ({ theme: { mixins, fonts, spacing } }) => css`
     display: flex;
     justify-content: center;
