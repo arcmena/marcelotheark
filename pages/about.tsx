@@ -12,8 +12,9 @@ import { getProjects } from '@graphql/queries/getProjects'
 
 import {
   AboutPageContainer,
-  AboutPageIntroduction,
+  AboutPageIntroduction
 } from '@styles/pages/AboutPageStyles'
+import Projects from '@components/layouts/AboutPage/Projects'
 
 const SEOContent = {
   title: 'About me | Marcelo the ark - Front End Developer',
@@ -32,7 +33,7 @@ interface AboutPageProps {
   projects: Array<TProject>
 }
 
-export default function AboutPage({ timelines }: AboutPageProps) {
+export default function AboutPage({ timelines, projects }: AboutPageProps) {
   return (
     <>
       <SEO {...SEOContent} />
@@ -43,6 +44,8 @@ export default function AboutPage({ timelines }: AboutPageProps) {
         <AboutPageIntroduction>{AboutMeContent}</AboutPageIntroduction>
 
         <Timeline timelines={timelines} />
+
+        <Projects projects={projects} />
       </AboutPageContainer>
     </>
   )
@@ -55,7 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       timelines,
-      projects,
+      projects
     }
   }
 }
