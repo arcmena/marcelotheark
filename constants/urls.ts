@@ -24,3 +24,10 @@ export const CONTACTS = {
   LINKEDIN: 'https://www.linkedin.com/in/marcelo-mena',
   INSTAGRAM: 'https://www.instagram.com/marcelotheark'
 }
+
+export const TECHS = {
+  FIGMA: 'https://www.figma.com/',
+  NEXTJS: 'https://nextjs.org/',
+  GRAPHCMS: 'https://graphcms.com/',
+  VERCEL: 'https://vercel.com/'
+}

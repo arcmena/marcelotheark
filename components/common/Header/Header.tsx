@@ -1,11 +1,12 @@
 import Link from '@components/elements/Link'
 import { SITE_URLS } from '@constants/urls'
+
 import { HeaderContainer } from './styles'
 
 export default function Header() {
   return (
     <HeaderContainer>
-      <Link href={SITE_URLS.HOME}>
+      <Link href={SITE_URLS.HOME} aria-label="Ark logo - Go home">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="108"

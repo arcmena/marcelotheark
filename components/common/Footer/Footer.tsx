@@ -1,4 +1,7 @@
-import { CONTACTS } from '@constants/urls'
+import Link from '@components/elements/Link'
+
+import { CONTACTS, TECHS } from '@constants/urls'
+
 import { FooterContainer } from './styles'
 
 export default function Footer() {
@@ -7,35 +10,43 @@ export default function Footer() {
       <div className="divider" />
 
       <p>
-        2022 © arcmena. This website was designed on <a>figma</a>, developed
-        with <a>nextjs</a>, <a>graphcms</a> & deployed to <a>vercel</a>.
+        2022 © arcmena. This website was designed on{' '}
+        <Link isExternal href={TECHS.FIGMA} aria-label="Checkout figma">
+          figma
+        </Link>
+        , developed with{' '}
+        <Link isExternal href={TECHS.NEXTJS} aria-label="Checkout nextjs">
+          nextjs
+        </Link>
+        ,{' '}
+        <Link isExternal href={TECHS.GRAPHCMS} aria-label="Checkout graphcms">
+          graphcms
+        </Link>{' '}
+        & deployed to{' '}
+        <Link isExternal href={TECHS.VERCEL} aria-label="Checkout vercel">
+          vercel
+        </Link>
+        .
       </p>
 
       <div className="links">
-        <a
-          href={CONTACTS.GITHUB}
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Checkout my Github"
-        >
+        <Link isExternal href={CONTACTS.GITHUB} aria-label="Checkout my Github">
           github
-        </a>
-        <a
+        </Link>
+        <Link
+          isExternal
           href={CONTACTS.LINKEDIN}
-          target="_blank"
-          rel="noreferrer"
           aria-label="Checkout my LinkedIn"
         >
           linkedin
-        </a>
-        <a
+        </Link>
+        <Link
+          isExternal
           href={CONTACTS.INSTAGRAM}
-          target="_blank"
-          rel="noreferrer"
           aria-label="Checkout my Instagram"
         >
           instagram
-        </a>
+        </Link>
       </div>
     </FooterContainer>
   )
