@@ -1,4 +1,3 @@
-import { transparentize } from 'polished'
 import styled, { css } from 'styled-components'
 
 export const BlogPostPageContainer = styled.article(
@@ -6,10 +5,6 @@ export const BlogPostPageContainer = styled.article(
     max-width: ${sizes.screens.md};
     margin: 0 auto;
     padding: 0 ${spacing[6]};
-
-    @media (min-width: ${sizes.screens.md}) {
-      padding: 0;
-    }
   `
 )
 

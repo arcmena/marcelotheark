@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
 
-import { marginX } from '@helpers/styleHelpers'
+import { paddingX } from '@helpers/styleHelpers'
 
 export const AboutPageContainer = styled.div(
   ({ theme: { spacing } }) => css`
-    ${marginX(spacing[6])}
+    ${paddingX(spacing[6])}
   `
 )
 

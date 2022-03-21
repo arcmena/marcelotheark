@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components'
 
 export const HeaderContainer = styled.header(
-  ({ theme: { spacing } }) => css`
+  ({ theme: { spacing, sizes } }) => css`
     padding: ${spacing[6]};
-    margin-bottom: ${spacing[6]};
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    max-width: ${sizes.screens.md};
+    margin: 0 auto ${spacing[6]};
   `
 )
 

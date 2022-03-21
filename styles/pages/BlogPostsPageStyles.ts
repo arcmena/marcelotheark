@@ -1,9 +1,10 @@
-import { gridLayout, marginX } from '@helpers/styleHelpers'
 import styled, { css } from 'styled-components'
+
+import { gridLayout, paddingX } from '@helpers/styleHelpers'
 
 export const BlogPostsPageContainer = styled.div(
   ({ theme: { spacing } }) => css`
-    ${marginX(spacing[6])}
+    ${paddingX(spacing[6])}
   `
 )
 

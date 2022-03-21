@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { marginX } from '@helpers/styleHelpers'
+import { paddingX } from '@helpers/styleHelpers'
 
 export const HomePageContainer = styled.div(
   ({ theme: { spacing } }) => css`
@@ -8,7 +8,7 @@ export const HomePageContainer = styled.div(
       margin-top: ${spacing[12]};
     }
 
-    ${marginX(spacing[6])}
+    ${paddingX(spacing[6])}
   `
 )
 
