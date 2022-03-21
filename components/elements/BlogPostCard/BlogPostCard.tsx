@@ -3,7 +3,7 @@ import Link from '../Link'
 
 import { TBlogPost } from '@graphql/schema'
 
-import { getMonthAndDay } from '@helpers/dateHelpers'
+import { getFullDate } from '@helpers/dateHelpers'
 
 import * as gtag from '@lib/gtag'
 
@@ -29,7 +29,7 @@ const BlogPostCard = ({ title, createdAt, subtitle }: TBlogPost) => {
     >
       <Card as="article">
         <BlogPostCardTitle>{title}</BlogPostCardTitle>
-        <BlogPostCardDate>{getMonthAndDay(createdAt)}</BlogPostCardDate>
+        <BlogPostCardDate>{getFullDate(createdAt)}</BlogPostCardDate>
         <BlogPostCardShortDescription>{subtitle}</BlogPostCardShortDescription>
       </Card>
     </Link>

@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components'
 
-export const BlogPostCardTitle = styled.h4(
+export const BlogPostCardTitle = styled.h1(
   ({ theme: { fonts } }) => css`
     font-size: ${fonts.sizes.xl};
     font-weight: ${fonts.weight.medium};
   `
 )
 
-export const BlogPostCardDate = styled.h4(
+export const BlogPostCardDate = styled.time(
   ({ theme: { spacing, fonts, colors } }) => css`
+    display: block;
     margin-top: ${spacing[3]};
 
     color: ${colors.gray};
@@ -17,7 +18,7 @@ export const BlogPostCardDate = styled.h4(
   `
 )
 
-export const BlogPostCardShortDescription = styled.h4(
+export const BlogPostCardShortDescription = styled.p(
   ({ theme: { spacing, fonts } }) => css`
     margin-top: ${spacing[4]};
 
