@@ -4,11 +4,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "yarn next-sitemap && yarn build-search",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch --coverage false",
-    "grc": "node ./scripts grc"
+    "grc": "node ./scripts grc",
+    "build-search": "node ./scripts/build-search"
   },
   "dependencies": {
     "body-scroll-lock": "^4.0.0-beta.0",
@@ -20,6 +21,7 @@
     "polished": "^4.1.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-instantsearch-dom": "^6.22.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
@@ -30,6 +32,8 @@
     "@types/node": "17.0.21",
     "@types/react": "17.0.39",
     "@types/styled-components": "^5.1.23",
+    "algoliasearch": "^4.13.0",
+    "dotenv": "^16.0.0",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
     "jest": "^27.5.1",
