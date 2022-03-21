@@ -10,7 +10,12 @@ export default function Link({
 }: LinkProps) {
   if (isExternal) {
     return (
-      <a href={String(href)} target="_blank" rel="noreferrer" {...rest}>
+      <a
+        href={String(href)}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...rest}
+      >
         {children}
       </a>
     )

@@ -27,7 +27,7 @@ export const BlogPostPageSearchInput = styled.div(
   `
 )
 
-export const BlogPostPageResults = styled.section(
+export const BlogPostPageResults = styled.nav(
   ({ theme: { spacing } }) => css`
     margin-top: ${spacing[11]};
 

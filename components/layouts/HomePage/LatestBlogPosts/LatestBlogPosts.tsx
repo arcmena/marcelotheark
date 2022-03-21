@@ -37,8 +37,12 @@ export default function LatestBlogPosts({
       </LatestBlogPostsItems>
 
       <LatestBlogPostsMore>
-        <Link href="/blog" onClick={trackClickAllPosts}>
-          More posts <ArrowDown />
+        <Link
+          href="/blog"
+          aria-label="Go to more posts"
+          onClick={trackClickAllPosts}
+        >
+          More posts <ArrowDown aria-hidden="true" focusable="false" />
         </Link>
       </LatestBlogPostsMore>
     </LatestBlogPostsContainer>

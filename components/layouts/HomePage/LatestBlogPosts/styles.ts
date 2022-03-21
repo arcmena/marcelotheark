@@ -8,7 +8,7 @@ export const LatestBlogPostsContainer = styled.section(
   `
 )
 
-export const LatestBlogPostsItems = styled.div(
+export const LatestBlogPostsItems = styled.nav(
   ({ theme: { spacing } }) => css`
     display: flex;
     flex-direction: column;
