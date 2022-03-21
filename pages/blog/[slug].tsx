@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
@@ -59,10 +60,10 @@ export default function BlogPostPage({
         <BlogPostInfo>
           <span>Published on {getFullDate(createdAt)}</span> in{' '}
           {tags.map((tag, index) => (
-            <>
-              <BlogPostInfoTags key={tag}>{tag}</BlogPostInfoTags>
+            <Fragment key={tag}>
+              <BlogPostInfoTags>{tag}</BlogPostInfoTags>
               {index + 1 !== tags.length && ', '}
-            </>
+            </Fragment>
           ))}
           . Authored by:
         </BlogPostInfo>
