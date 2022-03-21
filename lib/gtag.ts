@@ -5,3 +5,18 @@ export const pageView = (url: string) => {
     page_path: url
   })
 }
+
+type TEvent = {
+  action: string
+  category: string
+  label: string
+  value?: string | number
+}
+
+export const event = ({ action, category, label, value }: TEvent) => {
+  window.gtag('event', action, {
+    event_category: category,
+    event_label: label,
+    value: value
+  })
+}
