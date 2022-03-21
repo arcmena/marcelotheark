@@ -2,14 +2,19 @@ import Link from '@components/elements/Link'
 
 import { CONTACTS, TECHS } from '@constants/urls'
 
-import { FooterContainer } from './styles'
+import {
+  FooterContainer,
+  FooterDisclosure,
+  FooterDivider,
+  FooterLinks
+} from './styles'
 
 export default function Footer() {
   return (
     <FooterContainer>
-      <div className="divider" />
+      <FooterDivider />
 
-      <p>
+      <FooterDisclosure>
         2022 © arcmena. This website was designed on{' '}
         <Link isExternal href={TECHS.FIGMA} aria-label="Check out figma">
           figma
@@ -27,31 +32,27 @@ export default function Footer() {
           vercel
         </Link>
         .
-      </p>
+      </FooterDisclosure>
 
-      <div className="links">
-        <Link
-          isExternal
-          href={CONTACTS.GITHUB}
-          aria-label="Check out my Github"
-        >
+      <FooterLinks>
+        <Link isExternal href={CONTACTS.GITHUB} aria-label="My Github account">
           github
         </Link>
         <Link
           isExternal
           href={CONTACTS.LINKEDIN}
-          aria-label="Check out my LinkedIn"
+          aria-label="My LinkedIn account"
         >
           linkedin
         </Link>
         <Link
           isExternal
           href={CONTACTS.INSTAGRAM}
-          aria-label="Check out my Instagram"
+          aria-label="My Instagram account"
         >
           instagram
         </Link>
-      </div>
+      </FooterLinks>
     </FooterContainer>
   )
 }

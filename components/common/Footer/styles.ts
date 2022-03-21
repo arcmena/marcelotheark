@@ -6,31 +6,37 @@ export const FooterContainer = styled.footer(
     padding-bottom: ${spacing[10]};
     font-size: ${fonts.sizes.lg};
 
-    .divider {
-      ${mixins.primaryGradient};
-      height: 1px;
-    }
-
-    p {
-      max-width: 85%;
-      margin: ${spacing[6]} auto 0;
-
-      text-align: center;
-      color: ${colors.gray};
-      line-height: ${spacing[6]};
-    }
-
     a {
       color: ${colors.light};
       font-weight: ${fonts.weight.medium};
     }
+  `
+)
 
-    .links {
-      margin: ${spacing[10]} auto 0;
-      display: flex;
-      justify-content: space-between;
+export const FooterDivider = styled.div(
+  ({ theme: { mixins } }) => css`
+    ${mixins.primaryGradient};
+    height: 1px;
+  `
+)
 
-      max-width: 85%;
-    }
+export const FooterDisclosure = styled.p(
+  ({ theme: { spacing, colors } }) => css`
+    max-width: 85%;
+    margin: ${spacing[6]} auto 0;
+
+    text-align: center;
+    color: ${colors.gray};
+    line-height: ${spacing[6]};
+  `
+)
+
+export const FooterLinks = styled.div(
+  ({ theme: { spacing } }) => css`
+    margin: ${spacing[10]} auto 0;
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 85%;
   `
 )
