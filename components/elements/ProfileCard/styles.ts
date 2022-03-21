@@ -24,7 +24,6 @@ export const ProfileCardInner = styled.div(
 
     ${media.sm} {
       flex-direction: row;
-      ${paddingX(spacing[2])}
     }
   `
 )
