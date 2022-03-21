@@ -1,5 +1,9 @@
 import Image from 'next/image'
 
+import Link from '../Link'
+
+import { CONTACTS } from '@constants/urls'
+
 import ProfileImage from './profile-image.png'
 
 import {
@@ -25,9 +29,27 @@ export default function ProfileCard() {
         <ProfileCardPersonalInfo>
           <h3>Marcelo Mena</h3>
           <ProfileCardLinks>
-            <a href="">github</a>
-            <a href="">linkedin</a>
-            <a href="">instagram</a>
+            <Link
+              isExternal
+              href={CONTACTS.GITHUB}
+              aria-label="Check out my Github"
+            >
+              github
+            </Link>
+            <Link
+              isExternal
+              href={CONTACTS.LINKEDIN}
+              aria-label="Check out my LinkedIn"
+            >
+              linkedin
+            </Link>
+            <Link
+              isExternal
+              href={CONTACTS.INSTAGRAM}
+              aria-label="Check out my Instagram"
+            >
+              instagram
+            </Link>
           </ProfileCardLinks>
         </ProfileCardPersonalInfo>
       </ProfileCardInner>
