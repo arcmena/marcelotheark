@@ -5,6 +5,8 @@ import Link from '../Link'
 
 import { TProject } from '@graphql/schema'
 
+import * as gtag from '@lib/gtag'
+
 import {
   ProjectCardContainer,
   ProjectCardHeader,
@@ -17,6 +19,13 @@ import {
   ProjectCardTechnologiesList,
   ProjectCardTechnology
 } from './styles'
+
+const trackClick = (title: string, type: string) =>
+  gtag.event({
+    category: 'Project',
+    action: 'click',
+    label: `Project Card - ${title} to see ${type}`
+  })
 
 const cardLinksIconProps = {
   width: 30,
@@ -40,10 +49,20 @@ const ProjectCard = ({ title, description, url }: TProject) => {
         </ProjectCardInfo>
 
         <ProjectCardLinks>
-          <Link isExternal href={url} aria-label="Check out for yourself">
+          <Link
+            isExternal
+            href={url}
+            aria-label="Check out the live project"
+            onClick={() => trackClick(title, 'Live Project')}
+          >
             <ExternalLink {...cardLinksIconProps} />
           </Link>
-          <Link isExternal href={url} aria-label="Github Repository">
+          <Link
+            isExternal
+            href={url}
+            aria-label="Go to the github Repository"
+            onClick={() => trackClick(title, 'Git Repo')}
+          >
             <Github {...cardLinksIconProps} />
           </Link>
         </ProjectCardLinks>

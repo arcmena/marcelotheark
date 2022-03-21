@@ -5,11 +5,20 @@ import Link from '@components/elements/Link'
 
 import { TBlogPost } from '@graphql/schema'
 
+import * as gtag from '@lib/gtag'
+
 import {
   LatestBlogPostsContainer,
   LatestBlogPostsItems,
   LatestBlogPostsMore
 } from './styles'
+
+const trackClickAllPosts = () =>
+  gtag.event({
+    category: 'Blog',
+    action: 'click',
+    label: `Blog - Click to view more posts`
+  })
 
 interface LatestBlogPostsProps {
   latestBlogPosts: Array<TBlogPost>
@@ -28,8 +37,8 @@ export default function LatestBlogPosts({
       </LatestBlogPostsItems>
 
       <LatestBlogPostsMore>
-        <Link href="/blog">
-          More articles <ArrowDown />
+        <Link href="/blog" onClick={trackClickAllPosts}>
+          More posts <ArrowDown />
         </Link>
       </LatestBlogPostsMore>
     </LatestBlogPostsContainer>

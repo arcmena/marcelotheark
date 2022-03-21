@@ -2,12 +2,21 @@ import Link from '@components/elements/Link'
 
 import { CONTACTS, TECHS } from '@constants/urls'
 
+import * as gtag from '@lib/gtag'
+
 import {
   FooterContainer,
   FooterDisclosure,
   FooterDivider,
   FooterLinks
 } from './styles'
+
+const trackClickSocial = (item: string) =>
+  gtag.event({
+    category: 'Social',
+    action: 'click',
+    label: `Social Footer - ${item}`
+  })
 
 export default function Footer() {
   return (
@@ -35,13 +44,19 @@ export default function Footer() {
       </FooterDisclosure>
 
       <FooterLinks>
-        <Link isExternal href={CONTACTS.GITHUB} aria-label="My Github account">
+        <Link
+          isExternal
+          href={CONTACTS.GITHUB}
+          aria-label="My Github account"
+          onClick={() => trackClickSocial('Github')}
+        >
           github
         </Link>
         <Link
           isExternal
           href={CONTACTS.LINKEDIN}
           aria-label="My LinkedIn account"
+          onClick={() => trackClickSocial('LinkedIn')}
         >
           linkedin
         </Link>
@@ -49,6 +64,7 @@ export default function Footer() {
           isExternal
           href={CONTACTS.INSTAGRAM}
           aria-label="My Instagram account"
+          onClick={() => trackClickSocial('Instagram')}
         >
           instagram
         </Link>

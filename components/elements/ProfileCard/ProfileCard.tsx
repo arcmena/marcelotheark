@@ -6,6 +6,8 @@ import { CONTACTS } from '@constants/urls'
 
 import ProfileImage from './profile-image.png'
 
+import * as gtag from '@lib/gtag'
+
 import {
   ProfileCardContainer,
   ProfileCardLeftBorder,
@@ -13,6 +15,13 @@ import {
   ProfileCardPersonalInfo,
   ProfileCardLinks
 } from './styles'
+
+const trackClickSocial = (item: string) =>
+  gtag.event({
+    category: 'Social',
+    action: 'click',
+    label: `Social Profile Card - ${item}`
+  })
 
 export default function ProfileCard() {
   return (
@@ -33,6 +42,7 @@ export default function ProfileCard() {
               isExternal
               href={CONTACTS.GITHUB}
               aria-label="Check out my Github"
+              onClick={() => trackClickSocial('Github')}
             >
               github
             </Link>
@@ -40,6 +50,7 @@ export default function ProfileCard() {
               isExternal
               href={CONTACTS.LINKEDIN}
               aria-label="Check out my LinkedIn"
+              onClick={() => trackClickSocial('LinkedIn')}
             >
               linkedin
             </Link>
@@ -47,6 +58,7 @@ export default function ProfileCard() {
               isExternal
               href={CONTACTS.INSTAGRAM}
               aria-label="Check out my Instagram"
+              onClick={() => trackClickSocial('Instagram')}
             >
               instagram
             </Link>
