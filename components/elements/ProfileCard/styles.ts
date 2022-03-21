@@ -5,7 +5,7 @@ import { paddingX, paddingY } from '@helpers/styleHelpers'
 export const ProfileCardContainer = styled.div.attrs({
   className: 'profileCard'
 })(
-  ({ theme: { colors, spacing } }) => css`
+  ({ theme: { colors } }) => css`
     background-color: ${colors.darkPurple};
 
     display: flex;
@@ -15,20 +15,27 @@ export const ProfileCardContainer = styled.div.attrs({
 )
 
 export const ProfileCardInner = styled.div(
-  ({ theme: { spacing } }) => css`
-    ${paddingX(spacing[2])}
+  ({ theme: { spacing, media } }) => css`
     ${paddingY(spacing[5])}
+    ${paddingX(spacing[5])}
 
     display: flex;
+    flex-direction: column;
+
+    ${media.sm} {
+      flex-direction: row;
+      ${paddingX(spacing[2])}
+    }
   `
 )
 
 export const ProfileCardPersonalInfo = styled.div(
-  ({ theme: { spacing, fonts, colors } }) => css`
+  ({ theme: { spacing, fonts, colors, media } }) => css`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: ${spacing[4]};
+
+    margin-top: ${spacing[5]};
 
     gap: ${spacing[4]};
 
@@ -45,6 +52,11 @@ export const ProfileCardPersonalInfo = styled.div(
     a {
       color: ${colors.clearPurple};
       font-weight: ${fonts.weight.medium};
+    }
+
+    ${media.sm} {
+      margin-top: 0;
+      margin-left: ${spacing[4]};
     }
   `
 )

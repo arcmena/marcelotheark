@@ -4,8 +4,7 @@ const sizes = Object.freeze({
     sm: '425px',
     md: '768px',
     lg: '1024px',
-    xl: '1280px',
-    '2xl': '1600px'
+    xl: '1280px'
   },
   container: {
     1: '0.25rem', // 4px
