@@ -22,16 +22,17 @@ const trackClick = (title: string) =>
 
 const BlogPostCard = ({ title, createdAt, subtitle }: TBlogPost) => {
   return (
-    //@ts-ignore
-    <Card
-      as={Link}
+    <Link
       href="/blog/lorem-ipsum-dolor-sit-amet"
+      title={title}
       onClick={() => trackClick(title)}
     >
-      <BlogPostCardTitle>{title}</BlogPostCardTitle>
-      <BlogPostCardDate>{getMonthAndDay(createdAt)}</BlogPostCardDate>
-      <BlogPostCardShortDescription>{subtitle}</BlogPostCardShortDescription>
-    </Card>
+      <Card as="article">
+        <BlogPostCardTitle>{title}</BlogPostCardTitle>
+        <BlogPostCardDate>{getMonthAndDay(createdAt)}</BlogPostCardDate>
+        <BlogPostCardShortDescription>{subtitle}</BlogPostCardShortDescription>
+      </Card>
+    </Link>
   )
 }
 

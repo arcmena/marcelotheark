@@ -6,4 +6,5 @@ export interface LinkProps extends NextLinkProps {
   children: ReactNode
   isExternal?: boolean
   onClick?: () => void
+  title?: string
 }
