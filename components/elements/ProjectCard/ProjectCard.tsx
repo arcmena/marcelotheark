@@ -35,36 +35,47 @@ const cardLinksIconProps = {
 const cardTechnologiesIconProps = {
   width: 24,
   height: 24,
-  minWidth: 24,
-  minHeight: 24
+  minwidth: 24,
+  minheight: 24
 }
 
-const ProjectCard = ({ title, description, url }: TProject) => {
+const ProjectCard = ({
+  title,
+  appType,
+  description,
+  projectUrl,
+  repoUrl,
+  technologiesUsed
+}: TProject) => {
   return (
     <ProjectCardContainer data-testid="ProjectCard">
       <ProjectCardHeader>
         <ProjectCardInfo>
           <ProjectCardTitle>{title}</ProjectCardTitle>
-          <ProjectCardCategory>Chat app</ProjectCardCategory>
+          <ProjectCardCategory>{appType}</ProjectCardCategory>
         </ProjectCardInfo>
 
         <ProjectCardLinks>
-          <Link
-            isExternal
-            href={url}
-            aria-label="Check out the live project"
-            onClick={() => trackClick(title, 'Live Project')}
-          >
-            <ExternalLink {...cardLinksIconProps} />
-          </Link>
-          <Link
-            isExternal
-            href={url}
-            aria-label="Go to the github Repository"
-            onClick={() => trackClick(title, 'Git Repo')}
-          >
-            <Github {...cardLinksIconProps} />
-          </Link>
+          {projectUrl && (
+            <Link
+              isExternal
+              href={projectUrl}
+              aria-label="Check out the live project"
+              onClick={() => trackClick(title, 'Live Project')}
+            >
+              <ExternalLink {...cardLinksIconProps} />
+            </Link>
+          )}
+          {repoUrl && (
+            <Link
+              isExternal
+              href={repoUrl}
+              aria-label="Go to the github Repository"
+              onClick={() => trackClick(title, 'Git Repo')}
+            >
+              <Github {...cardLinksIconProps} />
+            </Link>
+          )}
         </ProjectCardLinks>
       </ProjectCardHeader>
 
@@ -74,9 +85,9 @@ const ProjectCard = ({ title, description, url }: TProject) => {
         <Sparkles {...cardTechnologiesIconProps} />
 
         <ProjectCardTechnologiesList>
-          <ProjectCardTechnology>React</ProjectCardTechnology>
-          <ProjectCardTechnology>Graphql</ProjectCardTechnology>
-          <ProjectCardTechnology>Subscriptions</ProjectCardTechnology>
+          {technologiesUsed.map(tech => (
+            <ProjectCardTechnology key={tech}>{tech}</ProjectCardTechnology>
+          ))}
         </ProjectCardTechnologiesList>
       </ProjectCardTechnologies>
     </ProjectCardContainer>

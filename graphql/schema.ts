@@ -1,8 +1,16 @@
+export type TImage = {
+  url: string
+}
+
 export type TProject = {
   id: string
   title: string
+  appType: string
   description: string
-  url: string
+  technologiesUsed: Array<string>
+  repoUrl: string | null
+  projectUrl: string | null
+  projectCover: TImage
 }
 
 export type TTimelineItem = {
@@ -26,7 +34,5 @@ export type TBlogPost = {
   content: string
   description: string
   subtitle: string
-  postCover: {
-    url: string
-  }
+  postCover: TImage
 }

@@ -1,6 +1,7 @@
 import { gql } from 'graphql-request'
 
 import { apiClient } from '@config/apiClient'
+
 import { TProject } from '../schema'
 
 export const GET_PROJECTS = gql`
@@ -9,7 +10,13 @@ export const GET_PROJECTS = gql`
       id
       title
       description
-      url
+      appType
+      technologiesUsed
+      repoUrl
+      projectUrl
+      projectCover {
+        url
+      }
     }
   }
 `

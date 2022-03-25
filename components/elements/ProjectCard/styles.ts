@@ -24,7 +24,8 @@ export const ProjectCardTitle = styled.h3(
 
 export const ProjectCardLinks = styled.div(
   ({ theme: { spacing } }) => css`
-    ${gridLayout({ columns: 2, gap: spacing[5] })}
+    display: flex;
+    gap: ${spacing[5]};
   `
 )
 
