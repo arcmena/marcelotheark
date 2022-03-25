@@ -1,10 +1,49 @@
 import styled, { css } from 'styled-components'
 
-import { gridLayout } from '@helpers/styleHelpers'
-
 import Card from '../Card'
 
-export const ProjectCardContainer = styled(Card)(() => css``)
+type AlternateSideProps = {
+  alternateSide: boolean
+}
+
+export const ProjectCardContainer = styled.div<AlternateSideProps>(
+  ({ theme: { media }, alternateSide }) => css`
+    ${media.md} {
+      position: relative;
+
+      ${alternateSide
+        ? css`
+            display: flex;
+            justify-content: end;
+          `
+        : css``}
+
+      .projectCover {
+        border-radius: 15px;
+      }
+    }
+  `
+)
+
+export const ProjectCardBody = styled(Card)<AlternateSideProps>(
+  ({ theme: { media }, alternateSide }) => css`
+    ${media.md} {
+      position: absolute;
+      width: 380px;
+
+      ${alternateSide
+        ? css`
+            left: 0;
+          `
+        : css`
+            right: 0;
+          `}
+
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  `
+)
 
 export const ProjectCardHeader = styled.div(
   () => css`

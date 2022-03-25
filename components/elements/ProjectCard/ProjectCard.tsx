@@ -17,8 +17,10 @@ import {
   ProjectCardDescription,
   ProjectCardTechnologies,
   ProjectCardTechnologiesList,
-  ProjectCardTechnology
+  ProjectCardTechnology,
+  ProjectCardBody
 } from './styles'
+import Image from 'next/image'
 
 const trackClick = (title: string, type: string) =>
   gtag.event({
@@ -39,57 +41,80 @@ const cardTechnologiesIconProps = {
   minheight: 24
 }
 
+interface ProjectCardProps extends TProject {
+  alternateSide: boolean
+}
+
 const ProjectCard = ({
+  projectCover,
   title,
   appType,
   description,
   projectUrl,
   repoUrl,
-  technologiesUsed
-}: TProject) => {
+  technologiesUsed,
+  alternateSide
+}: ProjectCardProps) => {
+  const screenWidth = typeof window === 'undefined' ? 0 : window.innerWidth
+
   return (
-    <ProjectCardContainer data-testid="ProjectCard">
-      <ProjectCardHeader>
-        <ProjectCardInfo>
-          <ProjectCardTitle>{title}</ProjectCardTitle>
-          <ProjectCardCategory>{appType}</ProjectCardCategory>
-        </ProjectCardInfo>
+    <ProjectCardContainer
+      data-testid="ProjectCard"
+      alternateSide={alternateSide}
+    >
+      {screenWidth > 768 && (
+        <Image
+          src={projectCover.url}
+          blurDataURL={projectCover.url}
+          alt={title}
+          width={486}
+          height={281}
+          className="projectCover"
+        />
+      )}
+      <ProjectCardBody alternateSide={alternateSide}>
+        <ProjectCardHeader>
+          <ProjectCardInfo>
+            <ProjectCardTitle>{title}</ProjectCardTitle>
+            <ProjectCardCategory>{appType}</ProjectCardCategory>
+          </ProjectCardInfo>
 
-        <ProjectCardLinks>
-          {projectUrl && (
-            <Link
-              isExternal
-              href={projectUrl}
-              aria-label="Check out the live project"
-              onClick={() => trackClick(title, 'Live Project')}
-            >
-              <ExternalLink {...cardLinksIconProps} />
-            </Link>
-          )}
-          {repoUrl && (
-            <Link
-              isExternal
-              href={repoUrl}
-              aria-label="Go to the github Repository"
-              onClick={() => trackClick(title, 'Git Repo')}
-            >
-              <Github {...cardLinksIconProps} />
-            </Link>
-          )}
-        </ProjectCardLinks>
-      </ProjectCardHeader>
+          <ProjectCardLinks>
+            {projectUrl && (
+              <Link
+                isExternal
+                href={projectUrl}
+                aria-label="Check out the live project"
+                onClick={() => trackClick(title, 'Live Project')}
+              >
+                <ExternalLink {...cardLinksIconProps} />
+              </Link>
+            )}
+            {repoUrl && (
+              <Link
+                isExternal
+                href={repoUrl}
+                aria-label="Go to the github Repository"
+                onClick={() => trackClick(title, 'Git Repo')}
+              >
+                <Github {...cardLinksIconProps} />
+              </Link>
+            )}
+          </ProjectCardLinks>
+        </ProjectCardHeader>
 
-      <ProjectCardDescription>{description}</ProjectCardDescription>
+        <ProjectCardDescription>{description}</ProjectCardDescription>
 
-      <ProjectCardTechnologies>
-        <Sparkles {...cardTechnologiesIconProps} />
+        <ProjectCardTechnologies>
+          <Sparkles {...cardTechnologiesIconProps} />
 
-        <ProjectCardTechnologiesList>
-          {technologiesUsed.map(tech => (
-            <ProjectCardTechnology key={tech}>{tech}</ProjectCardTechnology>
-          ))}
-        </ProjectCardTechnologiesList>
-      </ProjectCardTechnologies>
+          <ProjectCardTechnologiesList>
+            {technologiesUsed.map(tech => (
+              <ProjectCardTechnology key={tech}>{tech}</ProjectCardTechnology>
+            ))}
+          </ProjectCardTechnologiesList>
+        </ProjectCardTechnologies>
+      </ProjectCardBody>
     </ProjectCardContainer>
   )
 }

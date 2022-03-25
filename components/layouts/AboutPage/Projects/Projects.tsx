@@ -19,8 +19,12 @@ const Projects = ({ projects }: ProjectsProps) => {
       </ProjectsDescription>
 
       <ProjectsList>
-        {projects.map(project => (
-          <ProjectCard key={project.id} {...project} />
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={project.id}
+            alternateSide={(index + 1) % 2 === 0}
+            {...project}
+          />
         ))}
       </ProjectsList>
     </ProjectsContainer>

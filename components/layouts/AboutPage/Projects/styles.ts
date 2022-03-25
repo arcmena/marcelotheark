@@ -18,9 +18,13 @@ export const ProjectsDescription = styled.h2(
 )
 
 export const ProjectsList = styled.div(
-  ({ theme: { spacing } }) => css`
+  ({ theme: { spacing, media } }) => css`
     margin-top: ${spacing[7]};
 
     ${gridLayout({ columns: 1, gap: spacing[5] })}
+
+    ${media.md} {
+      ${gridLayout({ columns: 1, gap: spacing[11] })}
+    }
   `
 )
