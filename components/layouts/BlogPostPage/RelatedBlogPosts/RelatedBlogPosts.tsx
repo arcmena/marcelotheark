@@ -5,7 +5,7 @@ import { TBlogPost } from '@graphql/schema'
 
 import { RelatedBlogPostsContainer, RelatedBlogPostsList } from './styles'
 
-interface RelatedBlogPostProps {
+export interface RelatedBlogPostProps {
   relatedBlogPosts: Array<TBlogPost> | []
 }
 

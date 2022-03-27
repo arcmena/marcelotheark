@@ -5,7 +5,7 @@ import { TProject } from '@graphql/schema'
 
 import { ProjectsContainer, ProjectsDescription, ProjectsList } from './styles'
 
-interface ProjectsProps {
+export interface ProjectsProps {
   projects: Array<TProject>
 }
 

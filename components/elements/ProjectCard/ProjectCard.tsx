@@ -41,7 +41,7 @@ const cardTechnologiesIconProps = {
   minheight: 24
 }
 
-interface ProjectCardProps extends TProject {
+export interface ProjectCardProps extends TProject {
   alternateSide: boolean
 }
 
