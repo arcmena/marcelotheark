@@ -42,7 +42,10 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <GoogleFonts />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;1,500&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />
