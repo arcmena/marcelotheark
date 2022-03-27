@@ -7,7 +7,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch --coverage false",
+    "test": "jest",
+    "test:watch": "jest --watch --coverage false",
     "grc": "node ./scripts grc"
   },
   "dependencies": {
