@@ -1,9 +1,10 @@
 import { ReactNode } from 'react'
+
 import { PageTitleContainer } from './styles'
 
-const PageTitle = ({ label }: { label: string | ReactNode }) => {
+const PageTitle = ({ children }: { children: ReactNode }) => {
   return (
-    <PageTitleContainer data-testid="PageTitle">{label}</PageTitleContainer>
+    <PageTitleContainer data-testid="PageTitle">{children}</PageTitleContainer>
   )
 }
 

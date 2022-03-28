@@ -31,7 +31,7 @@ export default function BlogPostsPage({ blogPosts }: BlogPostsPageProps) {
       <SEO {...SEOContent} />
 
       <BlogPostsPageContainer>
-        <PageTitle label="Blog Posts" />
+        <PageTitle>Blog Posts</PageTitle>
 
         <BlogPostPageDescription>
           Writings and studies that I dedicate some time to share with the

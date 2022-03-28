@@ -39,7 +39,7 @@ export default function AboutPage({ timelines, projects }: AboutPageProps) {
       <SEO {...SEOContent} />
 
       <AboutPageContainer>
-        <PageTitle label={titleContent} />
+        <PageTitle>{titleContent}</PageTitle>
         <AboutPageIntroduction>{AboutMeContent}</AboutPageIntroduction>
         <Timeline timelines={timelines} />
         <Projects projects={projects} />

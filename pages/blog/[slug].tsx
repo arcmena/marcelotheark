@@ -49,7 +49,7 @@ export default function BlogPostPage({
       <SEO {...blogPostSEO(postData)} />
 
       <BlogPostPageContainer>
-        <PageTitle label={title} />
+        <PageTitle>{title}</PageTitle>
 
         <BlogPostSubtitle>{subtitle}</BlogPostSubtitle>
 
