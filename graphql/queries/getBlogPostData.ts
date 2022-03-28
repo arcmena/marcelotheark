@@ -15,12 +15,7 @@ export const GET_BLOG_POST_DATA = gql`
       content
       createdAt
       postCover {
-        url(
-          transformation: {
-            image: { resize: { width: 800, height: 600 } }
-            document: { output: { format: png } }
-          }
-        )
+        url
       }
     }
   }
