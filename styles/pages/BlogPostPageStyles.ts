@@ -8,7 +8,7 @@ export const BlogPostPageContainer = styled.article(
   `
 )
 
-export const BlogPostSubtitle = styled.h3(
+export const BlogPostSubtitle = styled.h2(
   ({ theme: { spacing, fonts, colors } }) => css`
     margin-top: ${spacing[6]};
 
