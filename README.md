@@ -8,3 +8,9 @@ My personal portfolio and blog!
 - React
 - Typescript
 - GraphCMS
+
+## Features incoming:
+
+[] Localization
+[] Blog post comments
+[] Design v3
