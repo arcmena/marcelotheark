@@ -11,6 +11,7 @@ My personal portfolio and blog!
 
 ## Features incoming:
 
-[] Localization
-[] Blog post comments
-[] Design v3
+- [x] Design v2
+- [ ] Localization
+- [ ] Blog post comments and reactions
+- [ ] Design v3
