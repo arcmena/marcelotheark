@@ -36,3 +36,17 @@ export type TBlogPost = {
   subtitle: string
   postCover: TImage
 }
+
+type TSEO = {
+  pageTitle: string
+  description: string
+}
+
+export type TGraphqlIdentifier = {
+  __typename: string
+}
+
+export type TPage = {
+  seo?: TSEO,
+  content?: TGraphqlIdentifier[]
+}

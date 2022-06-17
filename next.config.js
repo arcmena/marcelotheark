@@ -2,7 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['media.graphcms.com']
+    domains: ['media.graphassets.com']
   },
   compiler: {
     styledComponents: true,
