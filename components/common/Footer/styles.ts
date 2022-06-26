@@ -16,7 +16,7 @@ export const FooterContainer = styled.footer(
 export const FooterDivider = styled.div(
   ({ theme: { mixins } }) => css`
     ${mixins.primaryGradient};
-    height: 1px;
+    height: 2px;
   `
 )
 

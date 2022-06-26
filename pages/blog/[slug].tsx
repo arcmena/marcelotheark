@@ -65,7 +65,10 @@ export default function BlogPostPage({
         </BlogPostImageContainer>
 
         <BlogPostInfo>
-          <span>{t('published-on')} {getFullDate(createdAt, locale as ELocale)}</span> {t('in')}{' '}
+          <span>
+            {t('published-on')} {getFullDate(createdAt, locale as ELocale)}
+          </span>{' '}
+          {t('in')}{' '}
           {tags.map((tag, index) => (
             <Fragment key={tag}>
               <BlogPostInfoTags>{tag}</BlogPostInfoTags>
@@ -92,12 +95,14 @@ export const getStaticPaths: GetStaticPaths = async props => {
 
   const blogPosts = await getBlogPostsIndex()
 
-  const localizedPaths = blogPosts.map(blogPost =>
-    locales.map(locale => ({
-      params: { slug: blogPost.slug },
-      locale
-    }))
-  ).flat()
+  const localizedPaths = blogPosts
+    .map(blogPost =>
+      locales.map(locale => ({
+        params: { slug: blogPost.slug },
+        locale
+      }))
+    )
+    .flat()
 
   return {
     paths: localizedPaths,
@@ -124,7 +129,7 @@ export const getStaticProps: GetStaticProps = async context => {
       postData,
       mdContent,
       relatedBlogPosts,
-      ...await serverSideTranslations(locale!, ['common', 'post']),
+      ...(await serverSideTranslations(locale!, ['common', 'post']))
     }
   }
 }
