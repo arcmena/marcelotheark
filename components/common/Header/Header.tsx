@@ -1,5 +1,6 @@
 import Link from '@components/elements/Link'
 import Logo from '@components/elements/Logo'
+import LocalePicker from '../LocalePicker/LocalePicker'
 
 import { SITE_URLS } from '@constants/urls'
 
@@ -20,6 +21,7 @@ export default function Header() {
       <HeaderNav>
         <Link href={SITE_URLS.ABOUT}>About</Link>
         <Link href={SITE_URLS.BLOG}>Blog</Link>
+        <LocalePicker />
       </HeaderNav>
     </HeaderContainer>
   )
