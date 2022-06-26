@@ -11,10 +11,12 @@ import BlogPostParagraph from '@components/elements/BlogPostContent/BlogPostPara
 import BlogPostH1 from '@components/elements/BlogPostContent/BlogPostH1'
 import PageTitle from '@components/elements/PageTitle'
 import RelatedBlogPosts from '@components/layouts/BlogPostPage/RelatedBlogPosts'
+import ProfileCard from '@components/elements/ProfileCard'
 
 import { getBlogPostData } from '@graphql/queries/getBlogPostData'
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 import { getRelatedPostsIndex } from '@graphql/queries/getRelatedPostsIndex'
+import { ELocale } from '@graphql/schema'
 
 import { blogPostSEO } from '@helpers/blogPostHelpers'
 import { getFullDate } from '@helpers/dateHelpers'
@@ -29,7 +31,6 @@ import {
   BlogPostInfo,
   BlogPostInfoTags
 } from '@styles/pages/BlogPostPageStyles'
-import ProfileCard from '@components/elements/ProfileCard'
 
 const postComponents = {
   h1: BlogPostH1,
@@ -80,24 +81,39 @@ export default function BlogPostPage({
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async props => {
+  const { locales } = props as { locales: string[] }
+
   const blogPosts = await getBlogPostsIndex()
 
-  const blogPostPaths = blogPosts.map(({ slug }) => ({ params: { slug } }))
+  const localizedPaths = blogPosts.map(blogPost =>
+    locales.map(locale => ({
+      params: { slug: blogPost.slug },
+      locale
+    }))
+  ).flat()
 
   return {
-    paths: blogPostPaths,
+    paths: localizedPaths,
     fallback: false
   }
 }
 
 export const getStaticProps: GetStaticProps = async context => {
-  const { slug } = context.params as { slug: string }
+  const { locale, params } = context
 
-  const postData = await getBlogPostData(slug)
+  const { slug } = params as { slug: string }
+
+  const postData = await getBlogPostData(slug, locale as ELocale)
   const mdContent = await serialize(postData.content)
 
-  const relatedBlogPosts = await getRelatedPostsIndex(postData.tags, slug)
+  console.log(postData)
+
+  const relatedBlogPosts = await getRelatedPostsIndex(
+    postData.tags,
+    slug,
+    locale as ELocale
+  )
 
   return {
     props: {

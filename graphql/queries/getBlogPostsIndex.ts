@@ -1,9 +1,10 @@
 import { gql } from 'graphql-request'
 
+import { handleLocale } from '@helpers/localeHelpers'
+
 import { apiClient } from '@config/apiClient'
 
 import { ELocale, TBlogPost } from '../schema'
-import { handleLocale } from '@helpers/localeHelpers'
 
 export const GET_BLOG_POSTS_INDEX = gql`
   query getBlogPostsIndex($locales: [Locale!]!) {
@@ -18,7 +19,7 @@ export const GET_BLOG_POSTS_INDEX = gql`
   }
 `
 
-export async function getBlogPostsIndex(locale: ELocale = ELocale.en) {
+export async function getBlogPostsIndex(locale: ELocale = ELocale.EN) {
   const variables = {
     locales: [handleLocale(locale)]
   }

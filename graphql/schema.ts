@@ -38,6 +38,6 @@ export type TBlogPost = {
 }
 
 export enum ELocale {
-  pt_BR = 'pt-BR',
-  en = 'en'
+  PT_BR = 'pt-BR',
+  EN = 'en'
 }
