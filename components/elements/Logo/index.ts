@@ -1,1 +1,1 @@
-export { default } from './Logo'
+export { LogoFull, LogoMin } from './Logo'

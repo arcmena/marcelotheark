@@ -1,4 +1,46 @@
-export default function Logo({ ...props }) {
+import React from 'react'
+
+export function LogoMin({ ...props }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="108"
+      height="137"
+      fill="none"
+      viewBox="0 0 108 137"
+      className="logo-min"
+      {...props}
+    >
+      <path
+        fill="url(#paint0_linear_140_17)"
+        fillRule="evenodd"
+        d="M66.94 4.616a7.054 7.054 0 013.56 2.671 7.615 7.615 0 011.363 4.363v36.866h28.132a6.79 6.79 0 013.649 1.068c1.1.699 1.996 1.701 2.591 2.897a7.684 7.684 0 01.782 3.886 7.614 7.614 0 01-1.255 3.747l-49.231 73.733a7.07 7.07 0 01-3.5 2.759 6.726 6.726 0 01-4.38.054 7.058 7.058 0 01-3.56-2.674 7.616 7.616 0 01-1.36-4.364V92.756H15.599a6.791 6.791 0 01-3.649-1.068 7.244 7.244 0 01-2.59-2.897 7.673 7.673 0 01-.783-3.886 7.606 7.606 0 011.255-3.748l49.23-73.732a7.075 7.075 0 013.502-2.753 6.725 6.725 0 014.376-.049v-.007z"
+        clipRule="evenodd"
+      ></path>
+      <path
+        fill="#FBFBFB"
+        fillRule="evenodd"
+        d="M58.377.334a7.054 7.054 0 013.56 2.672A7.615 7.615 0 0163.3 7.368v36.867h28.133a6.79 6.79 0 013.648 1.068c1.1.699 1.996 1.7 2.591 2.897a7.674 7.674 0 01.782 3.886 7.606 7.606 0 01-1.254 3.747l-49.232 73.733a7.075 7.075 0 01-3.5 2.759 6.72 6.72 0 01-4.379.053 7.056 7.056 0 01-3.56-2.673 7.618 7.618 0 01-1.36-4.364V88.474H7.035a6.79 6.79 0 01-3.648-1.067A7.244 7.244 0 01.797 84.51a7.674 7.674 0 01-.782-3.886 7.605 7.605 0 011.254-3.748L50.5 3.144A7.074 7.074 0 0154.001.39a6.725 6.725 0 014.376-.05V.335z"
+        clipRule="evenodd"
+      ></path>
+      <defs>
+        <linearGradient
+          id="paint0_linear_140_17"
+          x1="10.276"
+          x2="105.317"
+          y1="72.629"
+          y2="72.629"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#6417CB"></stop>
+          <stop offset="1" stopColor="#74C6FA"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+}
+
+export function LogoFull({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +48,7 @@ export default function Logo({ ...props }) {
       height="40"
       fill="none"
       viewBox="0 0 108 40"
+      className="logo-full"
       {...props}
     >
       <path
