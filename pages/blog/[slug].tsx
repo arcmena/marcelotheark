@@ -107,8 +107,6 @@ export const getStaticProps: GetStaticProps = async context => {
   const postData = await getBlogPostData(slug, locale as ELocale)
   const mdContent = await serialize(postData.content)
 
-  console.log(postData)
-
   const relatedBlogPosts = await getRelatedPostsIndex(
     postData.tags,
     slug,
