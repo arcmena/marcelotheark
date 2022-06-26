@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import * as mdx from '@mdx-js/react'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '@components/common/SEO'
 import BlogPostResponsiveImage from '@components/elements/BlogPostContent/BlogPostResponsiveImage'
@@ -31,6 +32,7 @@ import {
   BlogPostInfo,
   BlogPostInfoTags
 } from '@styles/pages/BlogPostPageStyles'
+import { useRouter } from 'next/router'
 
 const postComponents = {
   h1: BlogPostH1,
@@ -43,6 +45,8 @@ export default function BlogPostPage({
   mdContent,
   relatedBlogPosts
 }: BlogPostPageProps) {
+  const { locale } = useRouter()
+
   const { title, createdAt, tags, postCover, subtitle } = postData
 
   return (
@@ -59,7 +63,7 @@ export default function BlogPostPage({
         </BlogPostImageContainer>
 
         <BlogPostInfo>
-          <span>Published on {getFullDate(createdAt)}</span> in{' '}
+          <span>Published on {getFullDate(createdAt, locale as ELocale)}</span> in{' '}
           {tags.map((tag, index) => (
             <Fragment key={tag}>
               <BlogPostInfoTags>{tag}</BlogPostInfoTags>
@@ -117,7 +121,8 @@ export const getStaticProps: GetStaticProps = async context => {
     props: {
       postData,
       mdContent,
-      relatedBlogPosts
+      relatedBlogPosts,
+      ...await serverSideTranslations(locale!, ['common']),
     }
   }
 }

@@ -1,3 +1,6 @@
+
+import { useTranslation } from 'next-i18next'
+
 import Link from '@components/elements/Link'
 import { LogoFull, LogoMin } from '@components/elements/Logo'
 import LocalePicker from '../LocalePicker/LocalePicker'
@@ -17,6 +20,8 @@ const logoMinProps = {
 }
 
 export default function Header() {
+  const { t } = useTranslation('common')
+
   return (
     <HeaderContainer>
       <Link href={SITE_URLS.HOME} aria-label="Ark logo - Go home">
@@ -25,8 +30,8 @@ export default function Header() {
       </Link>
 
       <HeaderNav>
-        <Link href={SITE_URLS.ABOUT}>About</Link>
-        <Link href={SITE_URLS.BLOG}>Blog</Link>
+        <Link href={SITE_URLS.ABOUT}>{t('about')}</Link>
+        <Link href={SITE_URLS.BLOG}>{t('blog')}</Link>
         <LocalePicker />
       </HeaderNav>
     </HeaderContainer>

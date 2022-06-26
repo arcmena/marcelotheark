@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '@components/common/SEO'
 import ProfileCard from '@components/elements/ProfileCard'
@@ -43,7 +44,8 @@ export const getStaticProps: GetStaticProps = async props => {
 
   return {
     props: {
-      latestBlogPosts
+      latestBlogPosts,
+      ...await serverSideTranslations(locale!, ['common']),
     }
   }
 }

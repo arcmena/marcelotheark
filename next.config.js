@@ -1,11 +1,9 @@
+const { i18n } = require('./next-i18next.config');
+
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  i18n: {
-    locales: ['en', 'pt-BR'],
-    defaultLocale: 'en',
-    localeDetection: false
-  },
+  i18n,
   images: {
     domains: ['media.graphassets.com']
   },
