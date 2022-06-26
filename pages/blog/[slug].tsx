@@ -1,9 +1,11 @@
 import { Fragment } from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import * as mdx from '@mdx-js/react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
 
 import SEO from '@components/common/SEO'
 import BlogPostResponsiveImage from '@components/elements/BlogPostContent/BlogPostResponsiveImage'
@@ -32,7 +34,6 @@ import {
   BlogPostInfo,
   BlogPostInfoTags
 } from '@styles/pages/BlogPostPageStyles'
-import { useRouter } from 'next/router'
 
 const postComponents = {
   h1: BlogPostH1,
@@ -45,6 +46,7 @@ export default function BlogPostPage({
   mdContent,
   relatedBlogPosts
 }: BlogPostPageProps) {
+  const { t } = useTranslation('post')
   const { locale } = useRouter()
 
   const { title, createdAt, tags, postCover, subtitle } = postData
@@ -63,14 +65,14 @@ export default function BlogPostPage({
         </BlogPostImageContainer>
 
         <BlogPostInfo>
-          <span>Published on {getFullDate(createdAt, locale as ELocale)}</span> in{' '}
+          <span>{t('published-on')} {getFullDate(createdAt, locale as ELocale)}</span> {t('in')}{' '}
           {tags.map((tag, index) => (
             <Fragment key={tag}>
               <BlogPostInfoTags>{tag}</BlogPostInfoTags>
               {index + 1 !== tags.length && ', '}
             </Fragment>
           ))}
-          . Authored by:
+          . {t('authored-by')}:
         </BlogPostInfo>
 
         <ProfileCard />
@@ -122,7 +124,7 @@ export const getStaticProps: GetStaticProps = async context => {
       postData,
       mdContent,
       relatedBlogPosts,
-      ...await serverSideTranslations(locale!, ['common']),
+      ...await serverSideTranslations(locale!, ['common', 'post']),
     }
   }
 }
