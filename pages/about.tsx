@@ -15,6 +15,7 @@ import {
   AboutPageIntroduction
 } from '@styles/pages/AboutPageStyles'
 import Projects from '@components/layouts/AboutPage/Projects'
+import { getPage } from '@graphql/queries/getPage'
 
 const SEOContent = {
   title: 'About me | Marcelo the ark - Front End Developer',
@@ -49,6 +50,8 @@ export default function AboutPage({ timelines, projects }: AboutPageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const pageData = await getPage('/about', HOME_PAGE_FRAGMENT)
+
   const timelines = await getTimelines()
   const projects = await getProjects()
 
