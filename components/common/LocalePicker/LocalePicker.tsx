@@ -1,39 +1,96 @@
-import { ChangeEvent } from 'react'
+import { useRef } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
+import Tippy, { TippyProps } from '@tippyjs/react'
+import { animateFill } from 'tippy.js'
+import 'tippy.js/animations/shift-away.css'
 
-import { SelectContainer } from './styles'
+import { PickerButton, PickerContent, PickerContentButton } from './styles'
+
+const localeIcon = {
+  en: '/us-round.png',
+  'pt-BR': '/br-round.png'
+}
+
+const tippyOptions: TippyProps = {
+  hideOnClick: true,
+  trigger: 'click',
+  interactive: true,
+  interactiveDebounce: 75,
+  placement: 'bottom',
+  animateFill: true,
+  plugins: [animateFill]
+}
+
+const TippyContent = ({
+  locales,
+  handleChangeLocale
+}: {
+  locales?: string[]
+  handleChangeLocale: (locale: string) => void
+}) => (
+  <PickerContent>
+    {locales?.map(locale => (
+      <PickerContentButton
+        key={locale}
+        onClick={() => handleChangeLocale(locale)}
+      >
+        <Image
+          //@ts-ignore
+          src={localeIcon[locale]}
+          width={25}
+          height={25}
+          alt="flag"
+        />
+        <span>{locale === 'en' ? 'English' : 'Portuguese (Brazil)'}</span>
+      </PickerContentButton>
+    ))}
+  </PickerContent>
+)
 
 const LocalePicker = () => {
+  const tippyRef = useRef<Element>(null)
+
   const router = useRouter()
 
-  const { locale, query, pathname } = router
+  const {
+    locale: currentLocale,
+    locales: availableLocales,
+    query,
+    pathname,
+    asPath
+  } = router
 
-  const queryEntries = Object.entries(query)
-  const textQuery =
-    queryEntries.length === 0
-      ? ''
-      : `?${Object.entries(query)
-          .map(([paramName, paramVal]) => `${paramName}=${paramVal}`)
-          .join('&')}`
+  const handleChangeLocale = (newLocale: string) => {
+    router.push({ pathname, query }, asPath, { locale: newLocale })
 
-  const handleChangeLocale = (e: ChangeEvent<HTMLSelectElement>) => {
-    const { value } = e.target
-
-    router.push(`${pathname}${textQuery}`, undefined, {
-      locale: value
-    })
+    //@ts-ignore
+    tippyRef.current._tippy.hide()
   }
 
   return (
-    <SelectContainer
-      name="locale"
-      id="locale"
-      value={locale}
-      onChange={handleChangeLocale}
+    <Tippy
+      content={
+        <TippyContent
+          locales={availableLocales}
+          handleChangeLocale={handleChangeLocale}
+        />
+      }
+      ref={tippyRef}
+      {...tippyOptions}
     >
-      <option value="en">EN</option>
-      <option value="pt-BR">PT-BR</option>
-    </SelectContainer>
+      <PickerButton>
+        {currentLocale && (
+          <Image
+            //@ts-ignore
+            src={localeIcon[currentLocale]}
+            width={25}
+            height={25}
+            alt="flag"
+          />
+        )}
+      </PickerButton>
+    </Tippy>
   )
 }
 

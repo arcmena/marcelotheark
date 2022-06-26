@@ -12,6 +12,7 @@
     "grc": "node ./scripts grc"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.6",
     "body-scroll-lock": "^4.0.0-beta.0",
     "date-fns": "^2.28.0",
     "graphql": "^16.3.0",
@@ -22,7 +23,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sharp": "^0.30.3",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",

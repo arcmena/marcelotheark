@@ -5,8 +5,8 @@ import ProfileCard from '@components/elements/ProfileCard'
 import Hero from '@components/layouts/HomePage/Hero'
 import LatestBlogPosts from '@components/layouts/HomePage/LatestBlogPosts'
 
-import { TBlogPost } from '@graphql/schema'
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
+import { ELocale, TBlogPost } from '@graphql/schema'
 
 import { HomePageContainer } from '@styles/pages/HomePageStyles'
 
@@ -36,8 +36,10 @@ export default function HomePage({ latestBlogPosts }: HomePageProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const latestBlogPosts = await getBlogPostsIndex()
+export const getStaticProps: GetStaticProps = async props => {
+  const { locale } = props
+
+  const latestBlogPosts = await getBlogPostsIndex(locale as ELocale)
 
   return {
     props: {
