@@ -23,28 +23,40 @@ const tippyOptions: TippyProps = {
 }
 
 const TippyContent = ({
+  currentLocale,
   locales,
   handleChangeLocale
 }: {
+  currentLocale: string
   locales?: string[]
   handleChangeLocale: (locale: string) => void
 }) => (
   <PickerContent>
-    {locales?.map(locale => (
-      <PickerContentButton
-        key={locale}
-        onClick={() => handleChangeLocale(locale)}
-      >
-        <Image
-          //@ts-ignore
-          src={localeIcon[locale]}
-          width={25}
-          height={25}
-          alt="flag"
-        />
-        <span>{locale === 'en' ? 'English' : 'Portuguese (Brazil)'}</span>
-      </PickerContentButton>
-    ))}
+    {locales?.map(locale => {
+        const isCurrent = locale === currentLocale
+
+        return (
+            <PickerContentButton
+              key={locale}
+              isCurrent={isCurrent}
+              onClick={() => {
+                if (isCurrent) {
+                  return
+                }
+                handleChangeLocale(locale)
+              }}
+            >
+              <Image
+                //@ts-ignore
+                src={localeIcon[locale]}
+                width={25}
+                height={25}
+                alt="flag"
+              />
+              <span>{locale === 'en' ? 'English' : 'Portuguese (Brazil)'}</span>
+            </PickerContentButton>
+          )
+    })}
   </PickerContent>
 )
 
@@ -72,6 +84,7 @@ const LocalePicker = () => {
     <Tippy
       content={
         <TippyContent
+          currentLocale={currentLocale as string}
           locales={availableLocales}
           handleChangeLocale={handleChangeLocale}
         />

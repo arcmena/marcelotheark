@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { lighten } from 'polished'
+import { darken, lighten } from 'polished'
 
 export const PickerButton = styled.button(
   () => css`
@@ -18,8 +18,12 @@ export const PickerContent = styled.div(
   `
 )
 
-export const PickerContentButton = styled.button(
-  ({ theme: { spacing, colors, fonts } }) => css`
+interface PickerContentButtonProps {
+  isCurrent: boolean
+}
+
+export const PickerContentButton = styled.button<PickerContentButtonProps>(
+  ({ isCurrent, theme: { spacing, colors, fonts } }) => css`
     padding: ${spacing[3]};
 
     display: flex;
@@ -35,8 +39,20 @@ export const PickerContentButton = styled.button(
       color: ${colors.light};
     }
 
-    &:hover {
-      background-color: ${lighten(0.1, colors.darkPurple)};
-    }
+    ${isCurrent
+        ? css`
+            cursor: not-allowed;
+
+            background-color: ${darken(0.03, colors.darkPurple)};
+
+            &:hover {
+              background-color: ${darken(0.03, colors.darkPurple)};
+            }
+          `
+        : css`
+            &:hover {
+              background-color: ${lighten(0.1, colors.darkPurple)};
+            }
+          `}
   `
 )
