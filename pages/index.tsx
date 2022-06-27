@@ -9,7 +9,7 @@ import LatestBlogPosts from '@components/layouts/HomePage/LatestBlogPosts'
 import { TBlogPost, TPage, ELocale } from '@graphql/schema'
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 import { getPage } from '@graphql/queries/getPage'
-import { HOME_PAGE_FRAGMENT } from '@graphql/fragments/homePageFragment'
+import { HOME_PAGE_CONTENT } from '@graphql/fragments/homePageContent'
 
 import { getContent } from '@helpers/contentHelpers'
 import { IHero } from '@components/layouts/HomePage/Hero/Hero'
@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps = async props => {
 
   const pageData = await getPage({
     identifier: '/',
-    contentFragment: HOME_PAGE_FRAGMENT,
+    contentFragment: HOME_PAGE_CONTENT,
     locale: locale as ELocale
   })
 

@@ -3,26 +3,25 @@ import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '@components/common/SEO'
-import PageTitle from '@components/elements/PageTitle'
 import Timeline from '@components/layouts/AboutPage/Timeline'
-import AboutMeContent from '@components/layouts/AboutPage/AboutMeContent'
+import Projects from '@components/layouts/AboutPage/Projects'
+import Introduction from '@components/layouts/AboutPage/Introduction'
 
-import { TTimeline, TProject } from '@graphql/schema'
-import { getTimelines } from '@graphql/queries/getTimeline'
-import { getProjects } from '@graphql/queries/getProjects'
+import { getPage } from '@graphql/queries/getPage'
+import { ABOUT_PAGE_CONTENT } from '@graphql/fragments/aboutPageContent'
+import {
+  TTimeline,
+  TProject,
+  ELocale,
+  TPage,
+  TMyIntroduction
+} from '@graphql/schema'
+
+import { getContent } from '@helpers/contentHelpers'
 
 import {
   AboutPageContainer,
-  AboutPageIntroduction
 } from '@styles/pages/AboutPageStyles'
-import Projects from '@components/layouts/AboutPage/Projects'
-import { getPage } from '@graphql/queries/getPage'
-
-const SEOContent = {
-  title: 'About me | Marcelo the ark - Front End Developer',
-  description:
-    'A bit about myself (Marcelo Mena) as a person and as a dev, my works and achievements!'
-}
 
 const titleContent = (
   <Fragment>
@@ -31,20 +30,28 @@ const titleContent = (
 )
 
 interface AboutPageProps {
-  timelines: Array<TTimeline>
-  projects: Array<TProject>
+  pageData: TPage
 }
 
-export default function AboutPage({ timelines, projects }: AboutPageProps) {
+export default function AboutPage(props: AboutPageProps) {
+  const { pageData } = props
+  const { seo, content } = pageData
+
+  const myIntroductionContent = getContent(
+    'MyIntroduction',
+    content
+  ) as TMyIntroduction
+  const timelines = getContent('Timeline', content) as TTimeline[]
+  const projects = getContent('Project', content) as TProject[]
+
   return (
     <>
-      <SEO {...SEOContent} />
+      <SEO {...seo} />
 
       <AboutPageContainer>
-        <PageTitle>{titleContent}</PageTitle>
-        <AboutPageIntroduction>{AboutMeContent}</AboutPageIntroduction>
-        <Timeline timelines={timelines} />
-        <Projects projects={projects} />
+        {myIntroductionContent && <Introduction content={myIntroductionContent} />}
+        {timelines && <Timeline timelines={timelines} />}
+        {projects && <Projects projects={projects} />}
       </AboutPageContainer>
     </>
   )
@@ -53,15 +60,15 @@ export default function AboutPage({ timelines, projects }: AboutPageProps) {
 export const getStaticProps: GetStaticProps = async props => {
   const { locale } = props
 
-  const pageData = await getPage('/about', HOME_PAGE_FRAGMENT)
-
-  const timelines = await getTimelines()
-  const projects = await getProjects()
+  const pageData = await getPage({
+    identifier: '/about',
+    contentFragment: ABOUT_PAGE_CONTENT,
+    locale: locale as ELocale
+  })
 
   return {
     props: {
-      timelines,
-      projects,
+      pageData,
       ...(await serverSideTranslations(locale!, ['common']))
     }
   }

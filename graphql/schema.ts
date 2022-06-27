@@ -37,6 +37,11 @@ export type TBlogPost = {
   postCover: TImage
 }
 
+export type TMyIntroduction = {
+  introduction: string
+  experienceHistory: string
+}
+
 type TSEO = {
   pageTitle: string
   description: string
