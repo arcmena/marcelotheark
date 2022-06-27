@@ -1,3 +1,5 @@
+import { useTranslation } from 'next-i18next'
+
 import Link from '@components/elements/Link'
 
 import { CONTACTS, TECHS } from '@constants/urls'
@@ -19,16 +21,18 @@ const trackClickSocial = (item: string) =>
   })
 
 export default function Footer() {
+  const { t } = useTranslation('common')
+
   return (
     <FooterContainer>
       <FooterDivider />
 
       <FooterDisclosure>
-        2022 © arcmena. This website was designed on{' '}
+        2022 © arcmena. {t('website-designed-on')}{' '}
         <Link isExternal href={TECHS.FIGMA} aria-label="Check out figma">
           figma
         </Link>
-        , developed with{' '}
+        , {t('developed-with')}{' '}
         <Link isExternal href={TECHS.NEXTJS} aria-label="Check out nextjs">
           nextjs
         </Link>
@@ -36,7 +40,7 @@ export default function Footer() {
         <Link isExternal href={TECHS.GRAPHCMS} aria-label="Check out graphcms">
           graphcms
         </Link>{' '}
-        & deployed to{' '}
+        & {t('deployed-to')}{' '}
         <Link isExternal href={TECHS.VERCEL} aria-label="Check out vercel">
           vercel
         </Link>
@@ -47,7 +51,7 @@ export default function Footer() {
         <Link
           isExternal
           href={CONTACTS.GITHUB}
-          aria-label="My Github account"
+          aria-label={t('my-github-account')}
           onClick={() => trackClickSocial('Github')}
         >
           github
@@ -55,7 +59,7 @@ export default function Footer() {
         <Link
           isExternal
           href={CONTACTS.LINKEDIN}
-          aria-label="My LinkedIn account"
+          aria-label={t('my-linkedin-account')}
           onClick={() => trackClickSocial('LinkedIn')}
         >
           linkedin
@@ -63,7 +67,7 @@ export default function Footer() {
         <Link
           isExternal
           href={CONTACTS.INSTAGRAM}
-          aria-label="My Instagram account"
+          aria-label={t('my-instagram-account')}
           onClick={() => trackClickSocial('Instagram')}
         >
           instagram

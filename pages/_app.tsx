@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import { ThemeProvider } from 'styled-components'
+import { appWithTranslation } from 'next-i18next'
 
 import Layout from '@components/common/Layout'
 
@@ -63,4 +64,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

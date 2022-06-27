@@ -1,11 +1,12 @@
 import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '@components/common/SEO'
 import ProfileCard from '@components/elements/ProfileCard'
 import Hero from '@components/layouts/HomePage/Hero'
 import LatestBlogPosts from '@components/layouts/HomePage/LatestBlogPosts'
 
-import { TBlogPost, TPage } from '@graphql/schema'
+import { TBlogPost, TPage, ELocale } from '@graphql/schema'
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
 import { getPage } from '@graphql/queries/getPage'
 import { HOME_PAGE_FRAGMENT } from '@graphql/fragments/homePageFragment'
@@ -42,14 +43,17 @@ export default function HomePage(props: HomePageProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async props => {
+  const { locale } = props
+
   const pageData = await getPage('/', HOME_PAGE_FRAGMENT)
-  const latestBlogPosts = await getBlogPostsIndex()
+  const latestBlogPosts = await getBlogPostsIndex(locale as ELocale)
 
   return {
     props: {
       pageData,
-      latestBlogPosts
+      latestBlogPosts,
+      ...await serverSideTranslations(locale!, ['common']),
     }
   }
 }

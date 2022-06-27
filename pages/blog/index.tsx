@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '@components/common/SEO'
 import BlogPostCard from '@components/elements/BlogPostCard'
@@ -52,12 +53,15 @@ export default function BlogPostsPage({ blogPosts }: BlogPostsPageProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async props => {
+  const { locale } = props
+
   const blogPosts = await getBlogPostsIndex()
 
   return {
     props: {
-      blogPosts
+      blogPosts,
+      ...(await serverSideTranslations(locale!, ['common']))
     }
   }
 }

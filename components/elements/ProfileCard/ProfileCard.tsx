@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
 
 import Link from '../Link'
 
@@ -24,13 +25,15 @@ const trackClickSocial = (item: string) =>
   })
 
 export default function ProfileCard() {
+  const { t } = useTranslation('common')
+
   return (
     <ProfileCardContainer>
       <ProfileCardLeftBorder />
       <ProfileCardInner>
         <Image
           src={ProfileImage}
-          alt="Marcelo Mena 80s style avatar"
+          alt={t('avatar-alt')}
           width="60"
           height="60"
           layout="fixed"
@@ -41,7 +44,7 @@ export default function ProfileCard() {
             <Link
               isExternal
               href={CONTACTS.GITHUB}
-              aria-label="Check out my Github"
+              aria-label={t('check-my-github')}
               onClick={() => trackClickSocial('Github')}
             >
               github
@@ -49,7 +52,7 @@ export default function ProfileCard() {
             <Link
               isExternal
               href={CONTACTS.LINKEDIN}
-              aria-label="Check out my LinkedIn"
+              aria-label={t('check-my-linkedin')}
               onClick={() => trackClickSocial('LinkedIn')}
             >
               linkedin
@@ -57,7 +60,7 @@ export default function ProfileCard() {
             <Link
               isExternal
               href={CONTACTS.INSTAGRAM}
-              aria-label="Check out my Instagram"
+              aria-label={t('check-my-instagram')}
               onClick={() => trackClickSocial('Instagram')}
             >
               instagram

@@ -50,3 +50,8 @@ export type TPage = {
   seo?: TSEO,
   content?: TGraphqlIdentifier[]
 }
+
+export enum ELocale {
+  PT_BR = 'pt-BR',
+  EN = 'en'
+}
