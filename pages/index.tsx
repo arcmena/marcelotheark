@@ -16,9 +16,8 @@ import { IHero } from '@components/layouts/HomePage/Hero/Hero'
 
 import { HomePageContainer } from '@styles/pages/HomePageStyles'
 
-
 interface HomePageProps {
-  pageData: TPage,
+  pageData: TPage
   latestBlogPosts: Array<TBlogPost>
 }
 
@@ -26,7 +25,7 @@ export default function HomePage(props: HomePageProps) {
   const { pageData, latestBlogPosts } = props
   const { seo, content } = pageData
 
-  const heroContent = getContent<IHero>('Hero', content)
+  const heroContent = getContent('Hero', content) as IHero
 
   return (
     <>
@@ -46,14 +45,19 @@ export default function HomePage(props: HomePageProps) {
 export const getStaticProps: GetStaticProps = async props => {
   const { locale } = props
 
-  const pageData = await getPage('/', HOME_PAGE_FRAGMENT)
+  const pageData = await getPage({
+    identifier: '/',
+    contentFragment: HOME_PAGE_FRAGMENT,
+    locale: locale as ELocale
+  })
+
   const latestBlogPosts = await getBlogPostsIndex(locale as ELocale)
 
   return {
     props: {
       pageData,
       latestBlogPosts,
-      ...await serverSideTranslations(locale!, ['common']),
+      ...(await serverSideTranslations(locale!, ['common']))
     }
   }
 }

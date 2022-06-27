@@ -2,7 +2,9 @@ import { gql } from 'graphql-request'
 
 import { apiClient } from '@config/apiClient'
 
-import { TPage } from '../schema'
+import { handleLocale } from '@helpers/localeHelpers'
+
+import { ELocale, TPage } from '../schema'
 
 const CONTENT_FRAGMENT = gql`
   fragment Content on PageContent {
@@ -13,8 +15,8 @@ const CONTENT_FRAGMENT = gql`
 const defaultContentFragment = CONTENT_FRAGMENT
 
 export const GET_PAGE = gql`
-  query getPage($identifier: String!) {
-    page(where: { identifier: $identifier }) {
+  query getPage($identifier: String!, $locales: [Locale!]!) {
+    page(where: { identifier: $identifier }, locales: $locales) {
       seo {
         pageTitle
         description
@@ -26,14 +28,20 @@ export const GET_PAGE = gql`
   }
 `
 
-export async function getPage(
+export async function getPage({
+  identifier,
+  contentFragment = defaultContentFragment,
+  locale = ELocale.EN
+}: {
   identifier: String,
-  contentFragment: string = defaultContentFragment
-) {
+  contentFragment?: string
+  locale?: ELocale
+}) {
   const query = `${GET_PAGE} ${contentFragment}`
 
   const variables = {
-    identifier
+    identifier,
+    locales: [handleLocale(locale)]
   }
 
   const { page } = await apiClient.request(query, variables)
