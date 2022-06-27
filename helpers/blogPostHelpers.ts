@@ -19,7 +19,7 @@ export const blogPostSEO = (blogPost: TBlogPost) => {
   }
 
   return {
-    title: seoTitle,
+    pageTitle: seoTitle,
     description: seoDescription,
     ogImage
   }
