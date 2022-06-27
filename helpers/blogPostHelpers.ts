@@ -1,4 +1,4 @@
-import { TOGImage } from '@components/common/SEO/types'
+import { TypeOGImage } from '@components/common/SEO/types'
 import { TBlogPost } from '@graphql/schema'
 
 export const blogPostSEO = (blogPost: TBlogPost) => {
@@ -10,7 +10,7 @@ export const blogPostSEO = (blogPost: TBlogPost) => {
 
   const seoDescription = `${description} - ${joinedTags}`
 
-  const ogImage: TOGImage = {
+  const ogImage: TypeOGImage = {
     src: postCover.url,
     alt: title,
     type: 'image/png',
@@ -19,7 +19,7 @@ export const blogPostSEO = (blogPost: TBlogPost) => {
   }
 
   return {
-    title: seoTitle,
+    pageTitle: seoTitle,
     description: seoDescription,
     ogImage
   }

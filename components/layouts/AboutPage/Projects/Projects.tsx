@@ -1,3 +1,5 @@
+import { useTranslation } from 'next-i18next'
+
 import ProjectCard from '@components/elements/ProjectCard'
 import SectionTitle from '@components/elements/SectionTitle'
 
@@ -10,12 +12,14 @@ export interface ProjectsProps {
 }
 
 const Projects = ({ projects }: ProjectsProps) => {
+  const { t } = useTranslation('common')
+
   return (
     <ProjectsContainer data-testid="Projects">
-      <SectionTitle>Projects</SectionTitle>
+      <SectionTitle>{t('projects')}</SectionTitle>
 
       <ProjectsDescription>
-        Some personal / freelancing projects I’ve been working on.
+        {t('projects-description')}
       </ProjectsDescription>
 
       <ProjectsList>

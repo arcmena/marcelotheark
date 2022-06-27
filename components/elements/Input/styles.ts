@@ -25,6 +25,11 @@ export const InputContainer = styled.input(
       border: 1px solid ${colors.primary1};
     }
 
+    &:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
     transition: border 0.1s ease-out;
   `
 )

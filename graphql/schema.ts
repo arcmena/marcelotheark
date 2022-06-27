@@ -37,6 +37,25 @@ export type TBlogPost = {
   postCover: TImage
 }
 
+export type TMyIntroduction = {
+  introduction: string
+  experienceHistory: string
+}
+
+type TSEO = {
+  pageTitle: string
+  description: string
+}
+
+export type TGraphqlIdentifier = {
+  __typename: string
+}
+
+export type TPage = {
+  seo?: TSEO,
+  content?: TGraphqlIdentifier[]
+}
+
 export enum ELocale {
   PT_BR = 'pt-BR',
   EN = 'en'

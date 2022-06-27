@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
 
 import SEO from '@components/common/SEO'
 import BlogPostCard from '@components/elements/BlogPostCard'
@@ -7,7 +8,8 @@ import Input from '@components/elements/Input'
 import PageTitle from '@components/elements/PageTitle'
 
 import { getBlogPostsIndex } from '@graphql/queries/getBlogPostsIndex'
-import { TBlogPost } from '@graphql/schema'
+import { getPage } from '@graphql/queries/getPage'
+import { ELocale, TBlogPost, TPage } from '@graphql/schema'
 
 import {
   BlogPostPageDescription,
@@ -16,31 +18,30 @@ import {
   BlogPostsPageContainer
 } from '@styles/pages/BlogPostsPageStyles'
 
-const SEOContent = {
-  title: 'Blog Posts | Marcelo the ark - Front End Developer',
-  description:
-    'Blog posts / Writings and studies dedicated to the dev community 💝'
-}
-
 interface BlogPostsPageProps {
+  pageData: TPage
   blogPosts: Array<TBlogPost>
 }
 
-export default function BlogPostsPage({ blogPosts }: BlogPostsPageProps) {
+export default function BlogPostsPage(props: BlogPostsPageProps) {
+  const { blogPosts, pageData } = props
+  const { seo } = pageData
+
+  const { t } = useTranslation('common')
+
   return (
     <>
-      <SEO {...SEOContent} />
+      <SEO {...seo} />
 
       <BlogPostsPageContainer>
-        <PageTitle>Blog Posts</PageTitle>
+        <PageTitle>{t('blog-posts')}</PageTitle>
 
         <BlogPostPageDescription>
-          Writings and studies that I dedicate some time to share with the
-          community 💝
+          {t('blog-posts-description')}
         </BlogPostPageDescription>
 
         <BlogPostPageSearchInput>
-          <Input name="blogPostSearch" placeholder="Search" />
+          <Input disabled name="blogPostSearch" placeholder={t('search-input-placeholder')} />
         </BlogPostPageSearchInput>
 
         <BlogPostPageResults>
@@ -56,11 +57,17 @@ export default function BlogPostsPage({ blogPosts }: BlogPostsPageProps) {
 export const getStaticProps: GetStaticProps = async props => {
   const { locale } = props
 
-  const blogPosts = await getBlogPostsIndex()
+  const pageData = await getPage({
+    identifier: '/blog',
+    locale: locale as ELocale
+  })
+
+  const blogPosts = await getBlogPostsIndex(locale as ELocale)
 
   return {
     props: {
       blogPosts,
+      pageData,
       ...(await serverSideTranslations(locale!, ['common']))
     }
   }
