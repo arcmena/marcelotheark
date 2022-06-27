@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '@components/common/SEO'
 import PageTitle from '@components/elements/PageTitle'
@@ -48,14 +49,17 @@ export default function AboutPage({ timelines, projects }: AboutPageProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async props => {
+  const { locale } = props
+
   const timelines = await getTimelines()
   const projects = await getProjects()
 
   return {
     props: {
       timelines,
-      projects
+      projects,
+      ...(await serverSideTranslations(locale!, ['common']))
     }
   }
 }

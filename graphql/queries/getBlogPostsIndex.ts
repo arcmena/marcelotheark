@@ -1,11 +1,14 @@
 import { gql } from 'graphql-request'
 
+import { handleLocale } from '@helpers/localeHelpers'
+
 import { apiClient } from '@config/apiClient'
-import { TBlogPost } from '../schema'
+
+import { ELocale, TBlogPost } from '../schema'
 
 export const GET_BLOG_POSTS_INDEX = gql`
-  query getBlogPostsIndex {
-    posts(orderBy: createdAt_DESC) {
+  query getBlogPostsIndex($locales: [Locale!]!) {
+    posts(orderBy: createdAt_DESC, locales: $locales) {
       id
       createdAt
       slug
@@ -16,8 +19,12 @@ export const GET_BLOG_POSTS_INDEX = gql`
   }
 `
 
-export async function getBlogPostsIndex() {
-  const { posts } = await apiClient.request(GET_BLOG_POSTS_INDEX)
+export async function getBlogPostsIndex(locale: ELocale = ELocale.EN) {
+  const variables = {
+    locales: [handleLocale(locale)]
+  }
+
+  const { posts } = await apiClient.request(GET_BLOG_POSTS_INDEX, variables)
 
   return posts as Array<TBlogPost>
 }

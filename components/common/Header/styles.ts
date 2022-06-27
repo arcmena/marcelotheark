@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const HeaderContainer = styled.header(
-  ({ theme: { spacing, sizes } }) => css`
+  ({ theme: { spacing, sizes, media } }) => css`
     padding: ${spacing[6]};
 
     display: flex;
@@ -10,6 +10,20 @@ export const HeaderContainer = styled.header(
 
     max-width: ${sizes.screens.md};
     margin: 0 auto ${spacing[6]};
+
+    .logo-full {
+      display: none;
+    }
+
+    ${media.md} {
+      .logo-full {
+        display: inline;
+      }
+
+      .logo-min {
+        display: none;
+      }
+    }
   `
 )
 

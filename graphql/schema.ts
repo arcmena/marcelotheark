@@ -36,3 +36,8 @@ export type TBlogPost = {
   subtitle: string
   postCover: TImage
 }
+
+export enum ELocale {
+  PT_BR = 'pt-BR',
+  EN = 'en'
+}

@@ -1,3 +1,5 @@
+import { useTranslation } from 'next-i18next'
+
 import SectionTitle from '@components/elements/SectionTitle'
 import BlogPostCard from '@components/elements/BlogPostCard'
 import ArrowDown from '@components/elements/Icons/ArrowDown'
@@ -27,9 +29,11 @@ interface LatestBlogPostsProps {
 export default function LatestBlogPosts({
   latestBlogPosts
 }: LatestBlogPostsProps) {
+  const { t } = useTranslation('common')
+
   return (
     <LatestBlogPostsContainer>
-      <SectionTitle>Latest articles</SectionTitle>
+      <SectionTitle>{t('latest-articles')}</SectionTitle>
       <LatestBlogPostsItems>
         {latestBlogPosts.map(blogPost => (
           <BlogPostCard key={blogPost.id} {...blogPost} />
@@ -39,10 +43,9 @@ export default function LatestBlogPosts({
       <LatestBlogPostsMore>
         <Link
           href="/blog"
-          aria-label="Go to more posts"
           onClick={trackClickAllPosts}
         >
-          More posts <ArrowDown aria-hidden="true" focusable="false" />
+          {t('more-posts')} <ArrowDown aria-hidden="true" focusable="false" />
         </Link>
       </LatestBlogPostsMore>
     </LatestBlogPostsContainer>
