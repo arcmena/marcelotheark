@@ -21,6 +21,7 @@ import {
   ProjectCardBody
 } from './styles'
 import Image from 'next/image'
+import Card from '../Card'
 
 const trackClick = (title: string, type: string) =>
   gtag.event({
@@ -73,47 +74,49 @@ const ProjectCard = ({
         />
       )}
       <ProjectCardBody alternateSide={alternateSide}>
-        <ProjectCardHeader>
-          <ProjectCardInfo>
-            <ProjectCardTitle>{title}</ProjectCardTitle>
-            <ProjectCardCategory>{appType}</ProjectCardCategory>
-          </ProjectCardInfo>
+        <Card as="section">
+          <ProjectCardHeader>
+            <ProjectCardInfo>
+              <ProjectCardTitle>{title}</ProjectCardTitle>
+              <ProjectCardCategory>{appType}</ProjectCardCategory>
+            </ProjectCardInfo>
 
-          <ProjectCardLinks>
-            {projectUrl && (
-              <Link
-                isExternal
-                href={projectUrl}
-                aria-label="Check out the live project"
-                onClick={() => trackClick(title, 'Live Project')}
-              >
-                <ExternalLink {...cardLinksIconProps} />
-              </Link>
-            )}
-            {repoUrl && (
-              <Link
-                isExternal
-                href={repoUrl}
-                aria-label="Go to the github Repository"
-                onClick={() => trackClick(title, 'Git Repo')}
-              >
-                <Github {...cardLinksIconProps} />
-              </Link>
-            )}
-          </ProjectCardLinks>
-        </ProjectCardHeader>
+            <ProjectCardLinks>
+              {projectUrl && (
+                <Link
+                  isExternal
+                  href={projectUrl}
+                  aria-label="Check out the live project"
+                  onClick={() => trackClick(title, 'Live Project')}
+                >
+                  <ExternalLink {...cardLinksIconProps} />
+                </Link>
+              )}
+              {repoUrl && (
+                <Link
+                  isExternal
+                  href={repoUrl}
+                  aria-label="Go to the github Repository"
+                  onClick={() => trackClick(title, 'Git Repo')}
+                >
+                  <Github {...cardLinksIconProps} />
+                </Link>
+              )}
+            </ProjectCardLinks>
+          </ProjectCardHeader>
 
-        <ProjectCardDescription>{description}</ProjectCardDescription>
+          <ProjectCardDescription>{description}</ProjectCardDescription>
 
-        <ProjectCardTechnologies>
-          <Sparkles {...cardTechnologiesIconProps} />
+          <ProjectCardTechnologies>
+            <Sparkles {...cardTechnologiesIconProps} />
 
-          <ProjectCardTechnologiesList>
-            {technologiesUsed.map(tech => (
-              <ProjectCardTechnology key={tech}>{tech}</ProjectCardTechnology>
-            ))}
-          </ProjectCardTechnologiesList>
-        </ProjectCardTechnologies>
+            <ProjectCardTechnologiesList>
+              {technologiesUsed.map(tech => (
+                <ProjectCardTechnology key={tech}>{tech}</ProjectCardTechnology>
+              ))}
+            </ProjectCardTechnologiesList>
+          </ProjectCardTechnologies>
+        </Card>
       </ProjectCardBody>
     </ProjectCardContainer>
   )

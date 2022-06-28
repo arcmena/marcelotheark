@@ -25,8 +25,15 @@ export const ProjectCardContainer = styled.div<AlternateSideProps>(
   `
 )
 
-export const ProjectCardBody = styled(Card)<AlternateSideProps>(
-  ({ theme: { media }, alternateSide }) => css`
+export const ProjectCardBody = styled.div<AlternateSideProps>(
+  ({ theme: { media, mixins }, alternateSide }) => css`
+    display: flex;
+
+    > div {
+      ${mixins.primaryGradientToTop}
+      border-radius: 4px 0 0 4px;
+    }
+
     ${media.md} {
       position: absolute;
       width: 380px;
@@ -34,6 +41,18 @@ export const ProjectCardBody = styled(Card)<AlternateSideProps>(
       ${alternateSide
         ? css`
             left: 0;
+
+            div {
+              order: 2;
+            }
+
+            section {
+              order: 1;
+            }
+
+            > div {
+              border-radius: 0 4px 4px 0;
+            }
           `
         : css`
             right: 0;

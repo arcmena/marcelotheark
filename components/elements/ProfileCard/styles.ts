@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { paddingX, paddingY } from '@helpers/styleHelpers'
 
-export const ProfileCardContainer = styled.div.attrs({
+export const ProfileCardContainer = styled.section.attrs({
   className: 'profileCard'
 })(
   ({ theme: { colors } }) => css`
@@ -17,7 +17,9 @@ export const ProfileCardContainer = styled.div.attrs({
 export const ProfileCardInner = styled.div(
   ({ theme: { spacing, media } }) => css`
     ${paddingY(spacing[5])}
-    ${paddingX(spacing[5])}
+
+    padding-left: ${spacing[3]};
+    padding-right: ${spacing[2]};
 
     display: flex;
     flex-direction: column;
@@ -36,21 +38,21 @@ export const ProfileCardPersonalInfo = styled.div(
 
     margin-top: ${spacing[5]};
 
-    gap: ${spacing[4]};
+    gap: ${spacing[3]};
 
-    h3,
-    a {
-      font-size: ${fonts.sizes.lg};
-    }
 
     h3 {
+      font-size: ${fonts.sizes.lg};
       font-weight: ${fonts.weight.semibold};
       color: ${colors.light};
+      letter-spacing: 1.1px;
     }
 
     a {
+      font-size: ${fonts.sizes.base};
       color: ${colors.clearPurple};
       font-weight: ${fonts.weight.medium};
+      letter-spacing: 1.1px;
     }
 
     ${media.sm} {

@@ -1,15 +1,42 @@
-import { transparentize } from 'polished'
+import { darken, transparentize } from 'polished'
 import styled, { css } from 'styled-components'
 
 import { paddingY, paddingX } from '@helpers/styleHelpers'
+import { ReactNode } from 'react'
 
-export default styled.div.attrs({ className: 'card' })(
-  ({ theme: { colors, spacing } }) => css`
+const Card = ({ children, as = "div" }: { as?: string, children: ReactNode }) => {
+  return (
+      <>
+        <CardBorder />
+        <CardContainer as={as}>
+          {children}
+        </CardContainer>
+    </>
+  )
+}
+
+const CardBorder = styled.div(({ theme: { mixins } }) => css`
+  ${mixins.primaryGradient}
+    min-width: 4px;
+    min-height: 4px;
+    border-radius: 4px 4px 0 0;
+`)
+
+const CardContainer = styled.div.attrs({ className: 'card' })(
+  ({ theme: { colors, spacing, media } }) => css`
     background-color: ${colors.darkPurple};
-    border: 1px solid ${transparentize(0.58, colors.primary1)};
-    border-radius: 15px;
+    border-radius: 4px;
 
-    ${paddingY(spacing[5])}
-    ${paddingX(spacing[6])}
+    ${paddingX(spacing[3])};
+
+    padding-top: ${spacing[4]};
+    padding-bottom: ${spacing[5]};
+
+    ${media.md} {
+      ${paddingY(spacing[4])}
+      ${paddingX(spacing[4])}
+    } 
   `
 )
+
+export default Card

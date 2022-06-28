@@ -9,6 +9,7 @@ export const HeroContainer = styled.section(
       font-size: ${fonts.sizes['5xl']};
       font-weight: ${fonts.weight.semibold};
       line-height: 50.4px;
+      letter-spacing: 1px;
     }
 
     h2 {
@@ -18,6 +19,7 @@ export const HeroContainer = styled.section(
       font-weight: ${fonts.weight.normal};
       max-width: 75%;
       line-height: 28.32px;
+      letter-spacing: .5px;
     }
   `
 )
