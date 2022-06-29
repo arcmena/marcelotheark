@@ -4,10 +4,12 @@ import styled, { css } from 'styled-components'
 import { paddingY, paddingX } from '@helpers/styleHelpers'
 import { ReactNode } from 'react'
 
-const Card = ({ children, as = "div" }: { as?: string, children: ReactNode }) => {
+const Card = ({ children, as = 
+"div" }: { as?: string, children: ReactNode }) => {
   return (
       <>
         <CardBorder />
+        {/* @ts-ignore */}
         <CardContainer as={as}>
           {children}
         </CardContainer>
