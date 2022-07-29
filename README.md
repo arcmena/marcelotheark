@@ -9,7 +9,7 @@ My personal portfolio and blog!
 - Typescript
 - GraphCMS
 
-## Features incoming:
+## Incoming features and improvements:
 
 - [x] Design v2
 - [x] Localization
