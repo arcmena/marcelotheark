@@ -18,9 +18,7 @@ const Projects = ({ projects }: ProjectsProps) => {
     <ProjectsContainer data-testid="Projects">
       <SectionTitle>{t('projects')}</SectionTitle>
 
-      <ProjectsDescription>
-        {t('projects-description')}
-      </ProjectsDescription>
+      <ProjectsDescription>{t('projects-description')}</ProjectsDescription>
 
       <ProjectsList>
         {projects.map((project, index) => (

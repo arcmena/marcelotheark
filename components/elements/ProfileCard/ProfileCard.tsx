@@ -57,14 +57,6 @@ export default function ProfileCard() {
             >
               linkedin
             </Link>
-            <Link
-              isExternal
-              href={CONTACTS.INSTAGRAM}
-              aria-label={t('check-my-instagram')}
-              onClick={() => trackClickSocial('Instagram')}
-            >
-              instagram
-            </Link>
           </ProfileCardLinks>
         </ProfileCardPersonalInfo>
       </ProfileCardInner>

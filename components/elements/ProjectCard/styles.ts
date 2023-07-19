@@ -121,7 +121,8 @@ export const ProjectCardTechnologiesList = styled.ul(
 
     display: flex;
     align-items: center;
-    gap: ${spacing[5]};
+    flex-wrap: wrap;
+    gap: ${spacing[2]};
 
     margin-left: ${spacing[2]};
   `

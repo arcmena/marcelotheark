@@ -22,7 +22,7 @@ export default function Link({
   }
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} legacyBehavior>
       <a {...rest}>{children}</a>
     </NextLink>
   )
