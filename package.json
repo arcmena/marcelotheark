@@ -19,7 +19,7 @@
     "graphql-request": "^4.0.0",
     "next": "^13.0.4",
     "next-i18next": "^11.0.0",
-    "next-mdx-remote": "^4.0.0",
+    "next-mdx-remote": "4.0.1",
     "polished": "^4.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
