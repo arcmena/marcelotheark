@@ -6,7 +6,7 @@ export const blogPostSEO = (blogPost: TBlogPost) => {
 
   const joinedTags = tags.join(', ')
 
-  const seoTitle = `${title} | Marcelo The Ark`
+  const seoTitle = `${title} | marcelotheark`
 
   const seoDescription = `${description} - ${joinedTags}`
 

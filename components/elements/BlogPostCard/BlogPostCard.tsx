@@ -20,10 +20,10 @@ const trackClick = (title: string) =>
     label: `Blog Post Card - Go to ${title}`
   })
 
-const BlogPostCard = ({ title, createdAt, subtitle }: TBlogPost) => {
+const BlogPostCard = ({ title, createdAt, subtitle, slug }: TBlogPost) => {
   return (
     <Link
-      href="/blog/lorem-ipsum-dolor-sit-amet"
+      href={`/blog/${slug}`}
       title={title}
       onClick={() => trackClick(title)}
     >
