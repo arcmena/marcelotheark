@@ -1,14 +1,16 @@
 import Image, { ImageProps } from 'next/image'
 
 export default function BlogPostResponsiveImage({ ...props }: ImageProps) {
+  const { alt, ...restProps } = props
+
   return (
     <Image
-      alt={props.alt}
+      alt={alt}
       layout="responsive"
       height="380"
       width="768"
       priority
-      {...props}
+      {...restProps}
     />
   )
 }
